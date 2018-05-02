@@ -20,7 +20,7 @@ class Paquete {
     public boolean isBasico() {
         return basico;
     }
-    
+
     private int costoPremium = 150;
     private int costoBasico = 10;
 
@@ -39,6 +39,5 @@ class Paquete {
     public void setCostoBasico(int costoBasico) {
         this.costoBasico = costoBasico;
     }
-    
-    
+
 }
