@@ -31,6 +31,8 @@ public class Reservacion {
         this.numeroDias = numeroDias;
         diaOut = fechaReserva.get(Calendar.DAY_OF_YEAR) + numeroDias;
     }
+    
+    
  
 
     public void setCliente(Cliente cliente) {
