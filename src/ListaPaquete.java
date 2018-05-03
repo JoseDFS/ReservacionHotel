@@ -32,7 +32,7 @@ public class ListaPaquete {
         paquete.setPrecio(Integer.parseInt(L.nextLine()));
         
         System.out.println("Escriba una descripcion para el paquete");
-        paquete.setDescripcion(Integer.parseInt(L.nextLine()))
+        paquete.setDescripcion(L.nextLine());
 
     }
     
