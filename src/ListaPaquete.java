@@ -21,7 +21,7 @@ public class ListaPaquete {
 
     Scanner L = new Scanner(System.in);
 
-    public void addListaPaquete() {
+    public void Paquete() {
         Paquete paquete = new Paquete();
         paquetes.add(paquete);
 
@@ -34,6 +34,18 @@ public class ListaPaquete {
         System.out.println("Escriba una descripcion para el paquete");
         paquete.setDescripcion(L.nextLine());
 
+    }
+    
+    public void addPaquete(Paquete paquete) throws Exception {
+        if (paquete != null) {
+            if (!paquetes.contains(paquete)) {
+                paquetes.add(paquete);
+            }
+            Exception e = new Exception("Ese paquete ya existe.");
+            throw e;
+        } else {
+            throw new Exception("No se puede agregar un paquete sin datos.");
+        }
     }
     
 }
