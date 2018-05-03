@@ -21,12 +21,13 @@ class Cliente {
 
     }
 
-    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, String dui) {
+    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, String dui, int numeroReservaciones) {
         this.nombre = nombre;
         this.tarjetaCredito = tarjetaCredito;
         this.telefono = telefono;
         this.correo = correo;
         this.dui = dui;
+        this.numeroReservaciones = numeroReservaciones;
     }
 
     public String getNombre() {
@@ -69,9 +70,6 @@ class Cliente {
         this.dui = dui;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + '}';
-    }
+    
 
 }
