@@ -50,5 +50,16 @@ public class ListaCliente {
             throw new Exception("No se puede agregar cliente sin datos.");
         }
     }
+    
+    public void mostrarTodo(){
+        if(clientes.isEmpty()){
+            System.out.println("No existe ningun cliente");
+        } else{
+            System.out.println("-----Clientes-----");
+            clientes.forEach((e) ->{
+                System.out.println(e.toString());
+            });
+        }
+    }
 
 }
