@@ -1,3 +1,6 @@
+
+import java.util.Date;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +18,16 @@ public class Reservacion {
     private int numeroDias;
     private Paquete paquete;
     private int totalPago;
+    private Date fechaReserva;
+    private Date fechaIda;
+
+    public Reservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) {
+        this.cliente = cliente;
+        this.habitacion = habitacion;
+        this.paquete = paquete;
+    }
+   
+ 
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
