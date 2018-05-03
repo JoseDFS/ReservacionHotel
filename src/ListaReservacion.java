@@ -38,7 +38,7 @@ public class ListaReservacion {
 
 
 
-    public void cancelarReservacion() {
+    public void cancelarReservacion(Cliente cliente) {
         String habitacion;
 
         System.out.println("Escriba el piso y numero de la habitacion:");
@@ -46,9 +46,10 @@ public class ListaReservacion {
         
         for (Iterator<Reservacion> iter = reservaciones.iterator(); iter.hasNext();) {
             Reservacion reservacion = iter.next();
-            if (reservacion.getHabitacion().equals(habitacion)) {
+            if (reservacion.getHabitacion().equals(habitacion) && reservacion.getCliente().equals(cliente)) {
                 iter.remove();
                 System.out.println("Se ha cancelado la reservacion especificada");
+                cliente.numeroReservaciones -=1;
             }
             else {
                 System.out.println("El piso no corresponde a una reservacion");
