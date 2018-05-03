@@ -39,4 +39,16 @@ public class ListaCliente {
 
     }
 
+    public void addCliente(Cliente cliente) throws Exception {
+        if (cliente != null) {
+            if (!clientes.contains(cliente)) {
+                clientes.add(cliente);
+            }
+            Exception e = new Exception("Ya existe cliente con esos datos.");
+            throw e;
+        } else {
+            throw new Exception("No se puede agregar cliente sin datos.");
+        }
+    }
+
 }
