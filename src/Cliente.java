@@ -11,7 +11,7 @@
 class Cliente {
 
     private String nombre;
-    private int dui;
+    private String dui;
     private String tarjetaCredito;
     private String telefono;
     private String correo;
@@ -20,7 +20,7 @@ class Cliente {
 
     }
 
-    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, int dui) {
+    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, String dui) {
         this.nombre = nombre;
         this.tarjetaCredito = tarjetaCredito;
         this.telefono = telefono;
@@ -60,11 +60,11 @@ class Cliente {
         this.correo = correo;
     }
 
-    public int getDui() {
+    public String getDui() {
         return dui;
     }
 
-    public void setDui(int dui) {
+    public void setDui(String dui) {
         this.dui = dui;
     }
 
