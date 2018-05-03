@@ -22,17 +22,29 @@ public class ListaReservacion {
 
     Scanner L = new Scanner(System.in);
 
-    public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) {
+    public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) throws Exception {
         Reservacion reservacion = new Reservacion();
         if (cliente.numeroReservaciones <= 2) {
             reservacion.setCliente(cliente);
             reservacion.setHabitacion(habitacion);
             reservacion.setPaquete(paquete);
 
-            reservaciones.add(reservacion);
+            addReservacion(reservacion);
         }
         else{
             System.out.println("El cliente ya ha reservado 2 habitaciones");
+        }
+    }
+    
+    public void addReservacion(Reservacion reservacion) throws Exception {
+        if (reservacion != null) {
+            if (!reservaciones.contains(reservacion)) {
+                reservaciones.add(reservacion);
+            }
+            Exception e = new Exception("Ya existe cliente con esos datos.");
+            throw e;
+        } else {
+            throw new Exception("No se puede agregar cliente sin datos.");
         }
     }
 
