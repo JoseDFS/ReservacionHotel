@@ -10,7 +10,6 @@
  */
 class Cliente {
 
-    
     private String nombre;
     private int dui;
     private String tarjetaCredito;
@@ -60,12 +59,19 @@ class Cliente {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
-    
+
+    public int getDui() {
+        return dui;
+    }
+
+    public void setDui(int dui) {
+        this.dui = dui;
+    }
 
     @Override
     public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + '}';
+        return "Cliente{" + "nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + '}';
     }
-
+    
+   
 }
