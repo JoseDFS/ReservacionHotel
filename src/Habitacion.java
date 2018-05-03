@@ -11,9 +11,38 @@
 class Habitacion {
 
     private int costoTotal;
+    private String piso;
+    private int numero;
+    private float costoNormal;
+    private float costoExtra;
+
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setCostoNormal(float costoNormal) {
+        this.costoNormal = costoNormal;
+    }
+
+    public void setCostoExtra(float costoExtra) {
+        this.costoExtra = costoExtra;
+    }
+
+    public float getCostoNormal() {
+        return costoNormal;
+    }
+
+    public float getCostoExtra() {
+        return costoExtra;
+    }
     
-    public void CostoTotal() {
-        
+    
+    
+    public void CostoTotal() {       
     }
     
     public int getCostoTotal() {
