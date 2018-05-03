@@ -23,19 +23,14 @@ public class ListaReservacion {
     Scanner L = new Scanner(System.in);
 
     public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) throws Exception {
-        Reservacion reservacion = new Reservacion();
         if (cliente.numeroReservaciones <= 2) {
-            reservacion.setCliente(cliente);
-            reservacion.setHabitacion(habitacion);
-            reservacion.setPaquete(paquete);
-
+            Reservacion reservacion = new Reservacion(cliente, habitacion, paquete);
             addReservacion(reservacion);
-        }
-        else{
+        } else {
             System.out.println("El cliente ya ha reservado 2 habitaciones");
         }
     }
-    
+
     public void addReservacion(Reservacion reservacion) throws Exception {
         if (reservacion != null) {
             if (!reservaciones.contains(reservacion)) {
@@ -48,22 +43,19 @@ public class ListaReservacion {
         }
     }
 
-
-
     public void cancelarReservacion(Cliente cliente) {
         String habitacion;
 
         System.out.println("Escriba el piso y numero de la habitacion:");
         habitacion = L.nextLine();
-        
+
         for (Iterator<Reservacion> iter = reservaciones.iterator(); iter.hasNext();) {
             Reservacion reservacion = iter.next();
             if (reservacion.getHabitacion().equals(habitacion) && reservacion.getCliente().equals(cliente)) {
                 iter.remove();
                 System.out.println("Se ha cancelado la reservacion especificada");
-                cliente.numeroReservaciones -=1;
-            }
-            else {
+                cliente.numeroReservaciones -= 1;
+            } else {
                 System.out.println("El piso no corresponde a una reservacion");
             }
         }
@@ -80,7 +72,7 @@ public class ListaReservacion {
             });
         }
     }
-    
+
     public void mostrarPorCliente(Cliente cliente) {
         for (Iterator<Reservacion> iter = reservaciones.iterator(); iter.hasNext();) {
             Reservacion reservacion = iter.next();
@@ -88,7 +80,7 @@ public class ListaReservacion {
                 System.out.println(reservacion.toString());
             }
         }
-            
+
     }
 
 }
