@@ -12,6 +12,9 @@ public class Reservacion {
 
     private Cliente cliente;
     private Habitacion habitacion;
+    private int numeroDias;
+    private Paquete paquete;
+    private int totalPago;
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
@@ -24,9 +27,7 @@ public class Reservacion {
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;
     }
-    private int numeroDias;
-    private Paquete paquete;
-    private int totalPago;
+    
 
     public void CostoTotal() {
         int costoPaquete = 0, costoHabitacion;
