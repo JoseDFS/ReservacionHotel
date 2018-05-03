@@ -82,6 +82,10 @@ public class ListaCliente {
                 System.out.println("Se elimino cliente");
             }
         }
+    }
+    
+    public void buscarCliente(){
+        
     } 
 
 }
