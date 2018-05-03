@@ -11,6 +11,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ListaHabitacion {
     private ArrayList<Habitacion> habitaciones;
@@ -24,24 +26,27 @@ public class ListaHabitacion {
     public Habitacion add() {
         Habitacion habitacion = new Habitacion();
 
-        System.out.println("Ingrese los nombre del cliente");
+        System.out.println("Ingrese el piso");
         System.out.print(": ");
         habitacion.setPiso(c.next());
 
-        System.out.println("Ingrese el correo");
+        System.out.println("Ingrese el numero de habitacion");
         System.out.print(": ");
         habitacion.setNumero(c.nextInt());
 
-        System.out.println("Ingrese Telefono");
+        System.out.println("Ingrese Precio Base");
         System.out.print(": ");
         habitacion.setCostoNormal(c.nextInt());
         
-        System.out.println("Ingrese el numero de dui");
+        System.out.println("Ingrese costo Extra");
         System.out.print(": ");
         habitacion.setCostoExtra(c.nextInt());
 
-        habitaciones.add(habitacion);
-        
+        try {
+            addHabitacion(habitacion);
+        } catch (Exception ex) {
+            Logger.getLogger(ListaHabitacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return habitacion;
 
     }
