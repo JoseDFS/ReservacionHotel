@@ -14,11 +14,17 @@ class Paquete {
     private boolean basico;
     
     private String Nombre;
+    private String Descripcion;
     private int Precio;
     
-    public Paquete(String nombre, int precio) {
+    public Paquete(String nombre, String descripcion, int precio) {
         this.Nombre = nombre;
         this.Precio = precio;
+        this.Descripcion = descripcion;
+    }
+
+    Paquete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public String getNombre() {
@@ -27,6 +33,14 @@ class Paquete {
 
     public void setNombre(String nombre) {
         this.Nombre = nombre;
+    }
+    
+    public String getDescripcion(){
+        return Descripcion;
+    }
+    
+    public void setDescripcion(String descripcion){
+        this.Descripcion = descripcion;
     }
 
     public int getCantidad() {
@@ -63,6 +77,14 @@ class Paquete {
 
     public void setCostoBasico(int costoBasico) {
         this.costoBasico = costoBasico;
+    }
+
+    void setPrecio(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setDescripcion(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
