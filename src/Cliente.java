@@ -15,6 +15,7 @@ class Cliente {
     private String tarjetaCredito;
     private String telefono;
     private String correo;
+    int numeroReservaciones;
 
     public Cliente() {
 
