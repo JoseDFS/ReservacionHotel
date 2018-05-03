@@ -75,7 +75,13 @@ public class ListaCliente {
         System.out.println("Escriba el nombre de cliente a eliminar: ");
         clienteE = c.nextLine();
         
-        
-    }
+        for(Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();){
+            Cliente cliente = iter.next();
+            if(cliente.getNombre().equals(clienteE)){
+                iter.remove();
+                System.out.println("Se elimino cliente");
+            }
+        }
+    } 
 
 }
