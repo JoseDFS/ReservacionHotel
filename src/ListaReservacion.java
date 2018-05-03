@@ -33,6 +33,7 @@ public class ListaReservacion {
                 Logger.getLogger(ListaReservacion.class.getName()).log(Level.SEVERE, null, ex);
             }
             habitacion.setHabilitada(false);
+            cliente.numeroReservaciones += 1;
         } else {
             System.out.println("El cliente ya ha reservado 2 habitaciones");
         }
