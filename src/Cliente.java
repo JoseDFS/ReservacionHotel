@@ -78,6 +78,11 @@ class Cliente {
         this.numeroReservaciones = numeroReservaciones;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" + "nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + ", numeroReservaciones=" + numeroReservaciones + '}';
+    }
+
     
 
 }
