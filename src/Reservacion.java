@@ -80,6 +80,10 @@ public class Reservacion {
     public int getTotalPago() {
         return totalPago;
     }
+    
+    public String toString() {
+        return   this.cliente.getNombre() + "    " + this.habitacion.getPiso() + "    "+ this.paquete.getNombre() + "    " + this.totalPago + "\n";
+    }
 
     
     
