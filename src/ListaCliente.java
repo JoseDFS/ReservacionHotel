@@ -67,5 +67,9 @@ public class ListaCliente {
             });
         }
     }
+    
+    public void elimanarCliente(){
+        
+    }
 
 }
