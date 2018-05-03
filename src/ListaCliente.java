@@ -16,7 +16,7 @@ public class ListaCliente {
 
     Scanner c = new Scanner(System.in);
 
-    public void add() {
+    public Cliente add() {
         Cliente cliente = new Cliente();
 
         System.out.println("Ingrese los nombre del cliente");
@@ -36,6 +36,8 @@ public class ListaCliente {
         cliente.setTarjetaCredito(c.nextLine());
 
         clientes.add(cliente);
+        
+        return cliente;
 
     }
 

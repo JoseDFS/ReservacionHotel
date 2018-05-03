@@ -10,7 +10,9 @@
  */
 class Cliente {
 
+    
     private String nombre;
+    private int dui;
     private String tarjetaCredito;
     private String telefono;
     private String correo;
@@ -19,11 +21,12 @@ class Cliente {
 
     }
 
-    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo) {
+    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, int dui) {
         this.nombre = nombre;
         this.tarjetaCredito = tarjetaCredito;
         this.telefono = telefono;
         this.correo = correo;
+        this.dui = dui;
     }
 
     public String getNombre() {
@@ -57,6 +60,8 @@ class Cliente {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    
+    
 
     @Override
     public String toString() {
