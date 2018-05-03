@@ -15,7 +15,7 @@ class Cliente {
     private String tarjetaCredito;
     private String telefono;
     private String correo;
-    int numeroReservaciones;
+    private int numeroReservaciones;
 
     public Cliente() {
 
@@ -68,6 +68,14 @@ class Cliente {
 
     public void setDui(String dui) {
         this.dui = dui;
+    }
+
+    public int getNumeroReservaciones() {
+        return numeroReservaciones;
+    }
+
+    public void setNumeroReservaciones(int numeroReservaciones) {
+        this.numeroReservaciones = numeroReservaciones;
     }
 
     

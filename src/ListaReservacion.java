@@ -25,7 +25,7 @@ public class ListaReservacion {
     Scanner L = new Scanner(System.in);
 
     public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete, int dias) throws Exception {
-        if (cliente.numeroReservaciones <= 2 && dias <= 7) {
+        if (cliente.getNumeroReservaciones() <= 2 && dias <= 7) {
             Reservacion reservacion = new Reservacion(cliente, habitacion, paquete, dias);
             try {
                 addReservacion(reservacion);
@@ -33,7 +33,7 @@ public class ListaReservacion {
                 Logger.getLogger(ListaReservacion.class.getName()).log(Level.SEVERE, null, ex);
             }
             habitacion.setHabilitada(false);
-            cliente.numeroReservaciones += 1;
+            cliente.setNumeroReservaciones(cliente.getNumeroReservaciones() + 1);
         } else {
             System.out.println("El cliente ya ha reservado 2 habitaciones");
         }
@@ -62,7 +62,7 @@ public class ListaReservacion {
             if (reservacion.getHabitacion().equals(habitacion) && reservacion.getCliente().equals(cliente)) {
                 iter.remove();
                 System.out.println("Se ha cancelado la reservacion especificada");
-                cliente.numeroReservaciones -= 1;
+                cliente.setNumeroReservaciones(cliente.getNumeroReservaciones() - 1);
             } else {
                 System.out.println("El piso no corresponde a una reservacion");
             }
