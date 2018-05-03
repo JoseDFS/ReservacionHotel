@@ -30,6 +30,10 @@ public class ListaCliente {
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
         cliente.setTelefono(c.nextLine());
+        
+        System.out.println("Ingrese el numero de dui");
+        System.out.print(": ");
+        cliente.setDui(c.nextLine());
 
         System.out.println("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
