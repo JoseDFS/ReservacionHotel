@@ -25,7 +25,7 @@ public class ListaReservacion {
     Scanner L = new Scanner(System.in);
 
     public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete, int dias) throws Exception {
-        if (cliente.getNumeroReservaciones() <= 2 && dias <= 7) {
+        if ((cliente.getNumeroReservaciones() <= 2) && (dias <= 7)) {
             Reservacion reservacion = new Reservacion(cliente, habitacion, paquete, dias);
             try {
                 addReservacion(reservacion);
