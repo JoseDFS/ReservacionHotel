@@ -24,25 +24,18 @@ public class ListaReservacion {
 
     public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) {
         Reservacion reservacion = new Reservacion();
-        
-        reservacion.setCliente(cliente);
-        reservacion.setHabitacion(habitacion);
-        reservacion.setPaquete(paquete);
-        
-        reservaciones.add(reservacion);
-    }
+        if (cliente.numeroReservaciones <= 2) {
+            reservacion.setCliente(cliente);
+            reservacion.setHabitacion(habitacion);
+            reservacion.setPaquete(paquete);
 
-    public void addReservacion(Reservacion reservacion) throws Exception {
-        if (reservacion != null) {
-            if (!reservaciones.contains(reservacion)) {
-                reservaciones.add(reservacion);
-            }
-            Exception e = new Exception("Ya hay una reservacion.");
-            throw e;
-        } else {
-            throw new Exception("No se puede agregar una reservacion sin datos.");
+            reservaciones.add(reservacion);
+        }
+        else{
+            System.out.println("El cliente ya ha reservado 2 habitaciones");
         }
     }
+
 
 
     public void cancelarReservacion() {
@@ -56,6 +49,9 @@ public class ListaReservacion {
             if (reservacion.getHabitacion().equals(habitacion)) {
                 iter.remove();
                 System.out.println("Se ha cancelado la reservacion especificada");
+            }
+            else {
+                System.out.println("El piso no corresponde a una reservacion");
             }
         }
 
