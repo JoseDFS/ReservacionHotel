@@ -21,7 +21,7 @@ public class ListaPaquete {
 
     Scanner L = new Scanner(System.in);
 
-    public void Paquete() {
+    public void addPaquete() {
         Paquete paquete = new Paquete();
         paquetes.add(paquete);
 
