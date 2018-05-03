@@ -12,6 +12,18 @@ public class Reservacion {
 
     private Cliente cliente;
     private Habitacion habitacion;
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+    }
+
+    public void setPaquete(Paquete paquete) {
+        this.paquete = paquete;
+    }
     private int numeroDias;
     private Paquete paquete;
     private int totalPago;
@@ -19,25 +31,20 @@ public class Reservacion {
     public void CostoTotal() {
         int costoPaquete = 0, costoHabitacion;
 
-        if (paquete.isPremium()) {
-            costoPaquete = paquete.getCostoPremium();
-        }
-
-        if (paquete.isBasico()) {
-            costoPaquete = paquete.getCostoBasico();
-        }
-
         costoHabitacion = habitacion.getCostoTotal();
         this.totalPago = (costoPaquete + costoHabitacion) * numeroDias;
 
     }
 
-    public void getCliente() {
-        //Aqui pondre para luego ver el nombre y dui  datos del cliente de esta reservacion
+    public Cliente getCliente() {
+        return this.cliente;
     }
 
-     public void getHabitacion() {
-       //Aqui pondre para luego ver el numero y piso de habitacion de esta reservacion
+     public String getHabitacion() {
+       int n = this.habitacion.getNumero();
+       String p = this.habitacion.getPiso();
+       
+       return p + n;
     }
 
     public int getNumeroDias() {
