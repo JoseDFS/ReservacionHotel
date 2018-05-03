@@ -2,6 +2,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,10 +24,15 @@ public class ListaReservacion {
 
     Scanner L = new Scanner(System.in);
 
-    public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) throws Exception {
+    public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete, int dias) throws Exception {
         if (cliente.numeroReservaciones <= 2) {
-            Reservacion reservacion = new Reservacion(cliente, habitacion, paquete);
-            addReservacion(reservacion);
+            Reservacion reservacion = new Reservacion(cliente, habitacion, paquete, dias);
+            try {
+                addReservacion(reservacion);
+            } catch (Exception ex) {
+                Logger.getLogger(ListaReservacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            habitacion.setHabilitada(false);
         } else {
             System.out.println("El cliente ya ha reservado 2 habitaciones");
         }
@@ -67,6 +74,7 @@ public class ListaReservacion {
             System.out.println("No hay reservaciones");
         } else {
             System.out.println("-----Reservaciones-----");
+            System.out.println("Cliente:   |  Habitacion:  |   Paquete:   |   Pago: ");
             reservaciones.forEach((e) -> {
                 System.out.println(e.toString());
             });

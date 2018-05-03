@@ -1,4 +1,5 @@
 
+import java.util.Calendar;
 import java.util.Date;
 
 /*
@@ -18,15 +19,20 @@ public class Reservacion {
     private int numeroDias;
     private Paquete paquete;
     private int totalPago;
-    private Date fechaReserva;
-    private Date fechaIda;
+    Calendar fechaReserva = Calendar.getInstance();
+    int diaOut;
+    
+    
 
-    public Reservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) {
+    public Reservacion(Cliente cliente, Habitacion habitacion, Paquete paquete, int numeroDias) {
         this.cliente = cliente;
         this.habitacion = habitacion;
         this.paquete = paquete;
+        this.numeroDias = numeroDias;
+        diaOut = fechaReserva.get(Calendar.DAY_OF_YEAR) + numeroDias;
     }
-   
+    
+    
  
 
     public void setCliente(Cliente cliente) {
@@ -73,6 +79,10 @@ public class Reservacion {
     
     public int getTotalPago() {
         return totalPago;
+    }
+    
+    public String toString() {
+        return   this.cliente.getNombre() + "    " + this.habitacion.getPiso() + "    "+ this.paquete.getNombre() + "    " + this.totalPago + "\n";
     }
 
     
