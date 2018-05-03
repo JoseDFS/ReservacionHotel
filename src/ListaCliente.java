@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Iterator;
 
 /**
  *
@@ -69,6 +70,11 @@ public class ListaCliente {
     }
     
     public void elimanarCliente(){
+        String clienteE;
+        
+        System.out.println("Escriba el nombre de cliente a eliminar: ");
+        clienteE = c.nextLine();
+        
         
     }
 
