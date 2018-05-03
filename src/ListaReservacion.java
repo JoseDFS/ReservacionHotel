@@ -74,6 +74,7 @@ public class ListaReservacion {
             System.out.println("No hay reservaciones");
         } else {
             System.out.println("-----Reservaciones-----");
+            System.out.println("Cliente:   |  Habitacion:  |   Paquete:   |   Pago: ");
             reservaciones.forEach((e) -> {
                 System.out.println(e.toString());
             });
