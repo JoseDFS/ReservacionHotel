@@ -170,19 +170,24 @@ public class ListaCliente {
                         optn = choose.nextInt();
                         switch (optn) {
                             case 1:
-                                System.out.println("Escribir nombre: ");
+                                System.out.println("Agregar nuevo nombre: ");
+                                cliente.setNombre(c.nextLine());
                                 break;
                             case 2:
-                        
+                                System.out.println("Agregar nuev1o DUI: ");
+                                
                                 break;
                             case 3:
+                                System.out.println("Agregar  nueva Tarjeta de credito: ");
                                     
                                 break;
 
                             case 4:
+                                System.out.println("Agregar nuevo Telefono: ");
                                 break;
                                 
                             case 5:
+                                System.out.println(" Agregar nuevo correo: ");
                                 break;
                                 
                             case 6:
