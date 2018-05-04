@@ -14,10 +14,10 @@ import java.util.Scanner;
 //Menú creado con patron singleton
 public class Menu {
     private static Menu menu;
-    private ListaCliente listaClientes = new ListaCliente();
-    private ListaHabitacion listaHabitaciones = new ListaHabitacion();
-    private ListaPaquete listaPaquetes = new ListaPaquete();
-    private ListaReservacion listaReservaciones = new ListaReservacion();
+    private final ListaCliente listaClientes = new ListaCliente();
+    private final ListaHabitacion listaHabitaciones = new ListaHabitacion();
+    private final ListaPaquete listaPaquetes = new ListaPaquete();
+    private final ListaReservacion listaReservaciones = new ListaReservacion();
 
     private Menu() {
     }
@@ -85,11 +85,11 @@ public class Menu {
                 switch (optn) {
                     case 1:
                         Cliente huesped = listaClientes.add();
-                        Habitacion cuarto = listaHabitaciones.add();
-                        Paquete pack = listaPaquetes.addPaquete();
+                        Habitacion cuarto = listaHabitaciones.add(); &=// no estas annadiendo habitaciones solo elegis una habitacion de la lista de habitaciones
+                        Paquete pack = listaPaquetes.addPaquete(); // no annadis paquete, elegis un paquete de la lista de paquetes
                         System.out.println("¿Cuantos dias se quedará?: ");
                         int cant = read.nextInt();
-                        Reservacion reserva = listaReservaciones.add(huesped, cuarto, pack, cant);
+                        listaReservaciones.add(huesped, cuarto, pack, cant);// aqui no creas la reservacion , lo hace la lista.
                         break;
                     case 2:
                         listaReservaciones.mostrarTodo();
