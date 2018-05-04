@@ -10,12 +10,14 @@
  */
 class Habitacion {
 
-    private int costoTotal;
+    private float costoTotal;
     private String piso;
     private int numero;
     private float costoNormal;
     private float costoExtra;
     private boolean habilitada;
+    private String tipo;
+    
 
     public boolean isHabilitada() {
         return habilitada;
@@ -25,6 +27,15 @@ class Habitacion {
         this.habilitada = f;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    
     public void setPiso(String piso) {
         this.piso = piso;
     }
@@ -51,10 +62,11 @@ class Habitacion {
     
     
     
-    public void CostoTotal() {       
+    public void setCostoTotal(float costoTotal) {
+        this.costoTotal=costoTotal;
     }
     
-    public int getCostoTotal() {
+    public float getCostoTotal() {
         return costoTotal;
     }
 

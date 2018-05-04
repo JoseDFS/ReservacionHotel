@@ -48,9 +48,11 @@ public class Reservacion {
     
 
     public void CostoTotal() {
-        int costoPaquete = 0, costoHabitacion;
-
-        costoHabitacion = habitacion.getCostoTotal();
+        int costoPaquete = 0, costoHabitacion;    
+        float costoHabitacionf;
+        
+        costoHabitacionf = habitacion.getCostoTotal();
+        costoHabitacion = (int)costoHabitacionf;
         this.totalPago = (costoPaquete + costoHabitacion) * numeroDias;
 
     }

@@ -10,6 +10,7 @@
  */
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 //Menú creado con patron singleton
 public class Menu {
@@ -19,6 +20,7 @@ public class Menu {
     private final ListaHabitacion listaHabitaciones = new ListaHabitacion();
     private final ListaPaquete listaPaquetes = new ListaPaquete();
     private final ListaReservacion listaReservaciones = new ListaReservacion();
+    private final ArrayList<ListaHabitacion> pisos = new ArrayList();
 
     private Menu() {
     }
@@ -28,6 +30,31 @@ public class Menu {
             menu = new Menu();
         }
         return menu;
+    }
+    
+    public void initHotel(){
+        char letra= 'A';
+        
+        Habitacion habitacion = new Habitacion();
+        for(int i=1; i<=6; i++){
+            for(int numero=1; numero<=10; numero++){
+                String piso = Character.toString(letra);
+                habitacion.setPiso(piso);
+                habitacion.setNumero(numero);
+                if((numero/2)==0){
+                    habitacion.setTipo("Doble");
+                    habitacion.setCostoNormal(25);
+                    habitacion.setCostoExtra(2);
+                }else{
+                    habitacion.setTipo("Sencilla");
+                    habitacion.setCostoNormal(17);
+                    habitacion.setCostoExtra(1);
+                }
+                habitacion.setCostoTotal(habitacion.getCostoNormal()+habitacion.getCostoExtra());
+                habitacion.setHabilitada(true);
+            }
+            letra++;
+        }
     }
 
     public void mostrar() throws Exception {
