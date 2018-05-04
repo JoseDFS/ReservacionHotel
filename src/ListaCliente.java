@@ -48,19 +48,19 @@ public class ListaCliente {
             System.out.println("No ingreso texto");
         }
         
-        //Ingreso de telefono
+       //Ingreso de telefono
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
         cliente.setTelefono(c.nextLine());
-
+/*
         System.out.println("Ingrese el numero de dui");
         System.out.print(": ");
-        cliente.setDui(c.nextInt());
+        cliente.setDui(Integer.parseInt(c.nextLine()));
 
         System.out.println("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
-        cliente.setTarjetaCredito(c.nextInt());
-
+        cliente.setTarjetaCredito(Integer.parseInt(c.nextLine()));
+*/
         clientes.add(cliente);
 
         return cliente;
