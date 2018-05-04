@@ -127,17 +127,19 @@ public class ListaCliente {
 
     public Cliente buscarClienteReservavion() {
         String clienteR;
-
+        Cliente cliente = null;
+        
         System.out.println("Que nombre de cliente desea: ");
         clienteR = c.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
-            Cliente cliente = iter.next();
-            if (cliente.getNombre().equals(clienteR)) {
-                return cliente;
-
+            Cliente tempcliente = iter.next();
+            if (tempcliente.getNombre().equals(clienteR)) {
+                cliente =  tempcliente;
             }
         }
+        return cliente;
+       
     }
 
     public void modificarCliente() {
