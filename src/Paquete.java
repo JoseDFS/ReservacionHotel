@@ -77,13 +77,9 @@ class Paquete {
     public void setCostoBasico(int costoBasico) {
         this.costoBasico = costoBasico;
     }
-
-    //void setPrecio(int parseInt) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
-
-    //void setDescripcion(int parseInt) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
-
+    
+    @Override
+    public String toString() {
+        return  "Paquete " + "|" + " Precio " + "|"+ " Descripcion \n"+ Nombre + "       " + Precio + "        " + Descripcion +"\n";
+    }
 }
