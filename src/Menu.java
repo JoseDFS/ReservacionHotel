@@ -231,7 +231,7 @@ public class Menu {
                         listaClientes.mostrarTodo();
                         break;
                     case 2:
-                        //listaClientes.modificarCliente();
+                        listaClientes.modificarCliente();
                         break;
                     case 3:
                         listaClientes.eliminarCliente();

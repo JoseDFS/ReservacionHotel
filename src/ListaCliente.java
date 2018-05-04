@@ -170,7 +170,7 @@ public class ListaCliente {
                         optn = choose.nextInt();
                         switch (optn) {
                             case 1:
-                                
+                                System.out.println("Escribir nombre: ");
                                 break;
                             case 2:
                         
