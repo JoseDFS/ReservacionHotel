@@ -33,7 +33,7 @@ public class ListaPaquete {
         
         System.out.println("Escriba una descripcion para el paquete");
         paquete.setDescripcion(L.nextLine());
-
+        
     }
     
 }
