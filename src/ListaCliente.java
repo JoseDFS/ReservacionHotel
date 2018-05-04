@@ -19,7 +19,8 @@ public class ListaCliente {
 
     public Cliente add() {
         Cliente cliente = new Cliente();
-
+        
+        //Ingreso de nombre
         System.out.println("Ingrese nombre del cliente ");
         System.out.print(": ");
         try {
@@ -27,7 +28,8 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingresaste texto");
         }
-
+        
+        //Ingreso de DUI
         System.out.println("Ingrese DUI del cliente");
         System.out.print(": ");
         try {
@@ -35,14 +37,21 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-
+        
+        
+        //Ingreso de correo
         System.out.println("Ingrese el correo");
         System.out.print(": ");
-        cliente.setCorreo(c.nextLine());
-
+        try {
+            cliente.setCorreo(c.nextLine());
+        } catch (Exception e) {
+            System.out.println("No ingreso texto");
+        }
+        
+        //Ingreso de telefono
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
-        cliente.setTelefono(c.nextInt());
+        cliente.setTelefono(c.nextLine());
 
         System.out.println("Ingrese el numero de dui");
         System.out.print(": ");
