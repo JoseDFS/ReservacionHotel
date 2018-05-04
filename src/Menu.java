@@ -218,6 +218,7 @@ public class Menu {
         Scanner choose = new Scanner(System.in);
 
         while (optn != 4) {
+            System.out.println(" ");
             System.out.println("1. Ver Clientes");
             System.out.println("2. Modificar datos de un cliente");
             System.out.println("3. Eliminar Cliente.");
