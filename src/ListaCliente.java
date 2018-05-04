@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Iterator;
 
@@ -19,8 +20,9 @@ public class ListaCliente {
 
     public Cliente add() {
         Cliente cliente = new Cliente();
-        
+
         //Ingreso de nombre
+        System.out.println(" ");
         System.out.println("Ingrese nombre del cliente ");
         System.out.print(": ");
         try {
@@ -28,7 +30,7 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingresaste texto");
         }
-        
+
         //Ingreso de DUI
         System.out.println("Ingrese DUI del cliente");
         System.out.print(": ");
@@ -37,8 +39,7 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
-        
+
         //Ingreso de correo
         System.out.println("Ingrese el correo");
         System.out.print(": ");
@@ -47,26 +48,25 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
+
         //Ingreso de telefono
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
-        try{
-        cliente.setTelefono(c.nextLine());
-        } catch(Exception e){
+        try {
+            cliente.setTelefono(c.nextLine());
+        } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
+
         //Ingreso de Tarjeta de Credito
         System.out.println("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
-        try{
-        cliente.setTarjetaCredito(c.nextLine());
-        } catch(Exception e){
+        try {
+            cliente.setTarjetaCredito(c.nextLine());
+        } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
-        
+
         clientes.add(cliente);
 
         return cliente;
@@ -126,4 +126,91 @@ public class ListaCliente {
         }
 
     }
+
+    public Cliente buscarClienteReservavion() {
+        String clienteR;
+        Cliente cliente = null;
+
+        System.out.println("Que nombre de cliente desea: ");
+        clienteR = c.nextLine();
+
+        for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
+            Cliente tempcliente = iter.next();
+            if (tempcliente.getNombre().equals(clienteR)) {
+                cliente = tempcliente;
+            }
+        }
+        return cliente;
+
+    }
+
+    public void modificarCliente() {
+        String clienteM;
+
+        System.out.println("Escribir nombre de cliente a modificar: ");
+        clienteM = c.nextLine();
+
+        for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
+            Cliente cliente = iter.next();
+            if (cliente.getNombre().equals(clienteM)) {
+                //Sub menu para modificar cliente
+                
+                int optn = 0;
+                Scanner choose = new Scanner(System.in);
+
+                while (optn != 1 && optn != 2 && optn != 3 && optn != 4 && optn != 5 && optn != 6 && optn != 7) {
+                    System.out.println("");
+                    System.out.println("1. Modificar nombre de cliente: ");
+                    System.out.println("2. Modificar DUI de cliente: ");
+                    System.out.println("3. Modificar Tarjeta de credito de cliente: ");
+                    System.out.println("4. Modificar telefono de cliente: ");
+                    System.out.println("5. Modificar correo de cliente: ");
+                    
+                    
+                    try {
+                        optn = choose.nextInt();
+                        switch (optn) {
+                            case 1:
+                                System.out.println(" ");
+                                System.out.println("Agregar nuevo nombre: ");
+                                cliente.setNombre(c.nextLine());
+                                break;
+                            case 2:
+                                System.out.println("Agregar nuevo DUI: ");
+                                cliente.setDui(c.nextLine());
+                                break;
+                            case 3:
+                                System.out.println("Agregar  nueva Tarjeta de credito: ");
+                                cliente.setTarjetaCredito(c.nextLine());
+                                break;
+
+                            case 4:
+                                System.out.println("Agregar nuevo Telefono: ");
+                                cliente.setTelefono(c.nextLine());
+                                break;
+                                
+                            case 5:
+                                System.out.println(" Agregar nuevo correo: ");
+                                cliente.setCorreo(c.nextLine());
+                                break;
+                                
+                            
+                            default:
+                                System.out.println("opción no valida");
+                                System.out.println("");
+                                break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println(" ");
+                System.err.println("Caractér o caracteres no validos");
+                System.out.println("");
+                choose.nextLine();
+            }
+                    
+                }
+
+            }
+
+        }
+    }    
 }
