@@ -149,7 +149,7 @@ public class ListaCliente {
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
             if (cliente.getNombre().equals(clienteM)) {
-
+                
             }
 
         }
