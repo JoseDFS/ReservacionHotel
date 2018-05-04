@@ -10,11 +10,10 @@
  */
 class Cliente {
     
-    private int numerodeCliente;
     private String nombre;
-    private int dui;
-    private int tarjetaCredito;
-    private int telefono;
+    private String dui;
+    private String tarjetaCredito;
+    private String telefono;
     private String correo;
     private int numeroReservaciones;
     
@@ -23,22 +22,13 @@ class Cliente {
 
     }
 
-    public Cliente(int numerodeCliente, String nombre, int dui, int tarjetaCredito, int telefono, String correo, int numeroReservaciones) {
-        this.numerodeCliente = numerodeCliente;
+    public Cliente(String nombre, String dui, String tarjetaCredito, String telefono, String correo, int numeroReservaciones) {
         this.nombre = nombre;
         this.dui = dui;
         this.tarjetaCredito = tarjetaCredito;
         this.telefono = telefono;
         this.correo = correo;
         this.numeroReservaciones = numeroReservaciones;
-    }
-
-    public int getNumerodeCliente() {
-        return numerodeCliente;
-    }
-
-    public void setNumerodeCliente(int numerodeCliente) {
-        this.numerodeCliente = numerodeCliente;
     }
 
     public String getNombre() {
@@ -49,27 +39,27 @@ class Cliente {
         this.nombre = nombre;
     }
 
-    public int getDui() {
+    public String getDui() {
         return dui;
     }
 
-    public void setDui(int dui) {
+    public void setDui(String dui) {
         this.dui = dui;
     }
 
-    public int getTarjetaCredito() {
+    public String getTarjetaCredito() {
         return tarjetaCredito;
     }
 
-    public void setTarjetaCredito(int tarjetaCredito) {
+    public void setTarjetaCredito(String tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -91,9 +81,11 @@ class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "numerodeCliente=" + numerodeCliente + ", nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + ", numeroReservaciones=" + numeroReservaciones + '}';
+        return "Cliente{" + "nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + ", numeroReservaciones=" + numeroReservaciones + '}';
     }
 
+    
+    
     
     
 

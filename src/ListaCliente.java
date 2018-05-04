@@ -20,17 +20,21 @@ public class ListaCliente {
     public Cliente add() {
         Cliente cliente = new Cliente();
 
-        System.out.println("Ingrese numero de cliente ");
+        System.out.println("Ingrese nombre del cliente ");
         System.out.print(": ");
         try {
-            cliente.setNumerodeCliente(c.nextInt());
+            cliente.setNombre(c.nextLine());
         } catch (Exception e) {
-            System.out.println("No ingresaste un numero");
+            System.out.println("No ingresaste texto");
         }
 
-        System.out.println("Ingrese los nombre del cliente");
+        System.out.println("Ingrese DUI del cliente");
         System.out.print(": ");
-        cliente.setNombre(c.nextLine());
+        try {
+            cliente.setDui(c.nextLine());
+        } catch (Exception e) {
+            System.out.println("No ingreso texto");
+        }
 
         System.out.println("Ingrese el correo");
         System.out.print(": ");
@@ -102,6 +106,7 @@ public class ListaCliente {
             Cliente cliente = iter.next();
             if (cliente.getNombre().equals(clienteN)) {
                 System.out.println(cliente.toString());
+
             }
         }
 
