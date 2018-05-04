@@ -63,6 +63,17 @@ public class ListaPaquete {
 
     }
     
+    public void mostrar() {
+        if (paquetes.isEmpty()) {
+            System.out.println("No hay paquetes");
+        } 
+        else {
+            System.out.println("-----Paquetes-----");
+            paquetes.forEach((e) -> {
+                System.out.println(e.toString());
+            });
+        }
+    }
 }
     
     
