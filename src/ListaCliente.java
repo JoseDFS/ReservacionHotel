@@ -22,6 +22,7 @@ public class ListaCliente {
         Cliente cliente = new Cliente();
 
         //Ingreso de nombre
+        System.out.println(" ");
         System.out.println("Ingrese nombre del cliente ");
         System.out.print(": ");
         try {
@@ -170,6 +171,7 @@ public class ListaCliente {
                         optn = choose.nextInt();
                         switch (optn) {
                             case 1:
+                                System.out.println(" ");
                                 System.out.println("Agregar nuevo nombre: ");
                                 cliente.setNombre(c.nextLine());
                                 break;
@@ -199,6 +201,7 @@ public class ListaCliente {
                                 break;
                 }
             } catch (InputMismatchException e) {
+                System.out.println(" ");
                 System.err.println("Caractér o caracteres no validos");
                 System.out.println("");
                 choose.nextLine();
