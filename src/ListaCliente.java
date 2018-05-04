@@ -21,14 +21,13 @@ public class ListaCliente {
         Cliente cliente = new Cliente();
 
         System.out.println("Ingrese numero de cliente ");
+        System.out.print(": ");
         try {
-
-            System.out.print(": ");
             cliente.setNumerodeCliente(c.nextInt());
         } catch (Exception e) {
             System.out.println("No ingresaste un numero");
         }
-        
+
         System.out.println("Ingrese los nombre del cliente");
         System.out.print(": ");
         cliente.setNombre(c.nextLine());
