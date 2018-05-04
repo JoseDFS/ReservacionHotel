@@ -164,7 +164,7 @@ public class ListaCliente {
                     System.out.println("3. Modificar Tarjeta de credito de cliente: ");
                     System.out.println("4. Modificar telefono de cliente: ");
                     System.out.println("5. Modificar correo de cliente: ");
-                    System.out.println("6. Salir. ");
+                    
                     
                     try {
                         optn = choose.nextInt();
@@ -174,24 +174,25 @@ public class ListaCliente {
                                 cliente.setNombre(c.nextLine());
                                 break;
                             case 2:
-                                System.out.println("Agregar nuev1o DUI: ");
-                                
+                                System.out.println("Agregar nuevo DUI: ");
+                                cliente.setDui(c.nextLine());
                                 break;
                             case 3:
                                 System.out.println("Agregar  nueva Tarjeta de credito: ");
-                                    
+                                cliente.setTarjetaCredito(c.nextLine());
                                 break;
 
                             case 4:
                                 System.out.println("Agregar nuevo Telefono: ");
+                                cliente.setTelefono(c.nextLine());
                                 break;
                                 
                             case 5:
                                 System.out.println(" Agregar nuevo correo: ");
+                                cliente.setCorreo(c.nextLine());
                                 break;
                                 
-                            case 6:
-                                break;
+                            
                             default:
                                 System.out.println("opción no valida");
                                 System.out.println("");
