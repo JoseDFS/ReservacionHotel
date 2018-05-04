@@ -98,9 +98,6 @@ public class ListaCliente {
         }
 
     }
+}
     
-    public void modificarCliente(){
-        ListaCliente lista;
-        
-        mostrarTodo();
-    }
+
