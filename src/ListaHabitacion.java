@@ -19,6 +19,15 @@ public class ListaHabitacion {
 
     public ListaHabitacion() {
         habitaciones = new ArrayList<>();
+        for(char i = 'A'; i <= 'F'; i++){
+            for(int j = 1; j <= 10; j++ ){
+                String h = ""+i;
+                Habitacion habitacion=new Habitacion();
+                habitacion.setPiso(h);
+                habitacion.setNumero(j);
+                habitaciones.add(habitacion);
+            }
+        }
     }
 
     Scanner c = new Scanner(System.in);
