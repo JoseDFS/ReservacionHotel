@@ -8,44 +8,48 @@ import java.util.Iterator;
  * @author fernando
  */
 public class ListaCliente {
-
+    
     private ArrayList<Cliente> clientes;
-
+    
     public ListaCliente() {
         clientes = new ArrayList<>();
     }
-
+    
     Scanner c = new Scanner(System.in);
-
+    
     public Cliente add() {
         Cliente cliente = new Cliente();
-
+        
+        System.out.println("Ingrese numero de cliente ");
+        System.out.print(": ");
+        cliente.setNumerodeCliente(c.nextInt());
+        
         System.out.println("Ingrese los nombre del cliente");
         System.out.print(": ");
         cliente.setNombre(c.nextLine());
-
+        
         System.out.println("Ingrese el correo");
         System.out.print(": ");
         cliente.setCorreo(c.nextLine());
-
+        
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
         cliente.setTelefono(c.nextLine());
-
+        
         System.out.println("Ingrese el numero de dui");
         System.out.print(": ");
         cliente.setDui(c.nextLine());
-
+        
         System.out.println("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
         cliente.setTarjetaCredito(c.nextLine());
-
+        
         clientes.add(cliente);
-
+        
         return cliente;
-
+        
     }
-
+    
     public void addCliente(Cliente cliente) throws Exception {
         if (cliente != null) {
             if (!clientes.contains(cliente)) {
@@ -57,7 +61,7 @@ public class ListaCliente {
             throw new Exception("No se puede agregar cliente sin datos.");
         }
     }
-
+    
     public void mostrarTodo() {
         if (clientes.isEmpty()) {
             System.out.println("No existe ningun cliente");
@@ -68,13 +72,13 @@ public class ListaCliente {
             });
         }
     }
-
+    
     public void elimanarCliente() {
         String clienteE;
-
+        
         System.out.println("Escriba el nombre de cliente a eliminar: ");
         clienteE = c.nextLine();
-
+        
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
             if (cliente.getNombre().equals(clienteE)) {
@@ -83,21 +87,19 @@ public class ListaCliente {
             }
         }
     }
-
+    
     public void buscarCliente() {
         String clienteN;
-
+        
         System.out.println("Que nombre de cliente desea buscar: ");
         clienteN = c.nextLine();
-
+        
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
             if (cliente.getNombre().equals(clienteN)) {
                 System.out.println(cliente.toString());
             }
         }
-
+        
     }
 }
-    
-
