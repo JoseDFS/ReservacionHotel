@@ -96,7 +96,7 @@ public class ListaCliente {
         }
     }
 
-    public void elimanarCliente() {
+    public void eliminarCliente() {
         String clienteE;
 
         System.out.println("Escriba el nombre de cliente a eliminar: ");
