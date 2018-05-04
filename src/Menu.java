@@ -52,8 +52,11 @@ public class Menu {
                 }
                 habitacion.setCostoTotal(habitacion.getCostoNormal()+habitacion.getCostoExtra());
                 habitacion.setHabilitada(true);
+                
+                //listaHabitaciones.addHabitacion(habitacion);
             }
             letra++;
+            pisos.add(listaHabitaciones);
         }
     }
 

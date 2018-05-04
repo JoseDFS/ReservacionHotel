@@ -18,6 +18,9 @@ class Habitacion {
     private boolean habilitada;
     private String tipo;
     
+    public void Habitacion(){
+        
+    }
 
     public boolean isHabilitada() {
         return habilitada;
