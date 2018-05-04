@@ -23,7 +23,7 @@ public class ListaHabitacion {
 
     Scanner c = new Scanner(System.in);
     
-    public Habitacion add() {
+    public void addHabitacion() {
         Habitacion habitacion = new Habitacion();
 
         System.out.println("Ingrese el piso");
@@ -47,7 +47,7 @@ public class ListaHabitacion {
         } catch (Exception ex) {
             Logger.getLogger(ListaHabitacion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return habitacion;
+       
 
     }
 
@@ -61,6 +61,30 @@ public class ListaHabitacion {
         } else {
             throw new Exception("No se puede agregar.");
         }
+    }
+
+    void habilitarHabitacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void deshabilitarHabitacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void habilitarPiso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void deshabilitarPiso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void mostrarHabitaciones() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void modificarhabitacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
