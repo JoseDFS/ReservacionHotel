@@ -29,15 +29,16 @@ public class Menu {
         return menu;
     }
 
-    public void mostrar() {
-        int optn = 0;
+    public void mostrar() throws Exception {
+        int optn = 7;
         Scanner choose = new Scanner(System.in);
 
-        while (optn != 1 && optn != 2 && optn != 3 && optn != 4) {
+        while (optn != 5) {
             System.out.println("1. Reservaciones");
             System.out.println("2. Gestionar habitaciones");
             System.out.println("3. Gestionar paquetes.");
-            System.out.println("4. Salir");
+            System.out.println("3. Gestionar clientes.");
+            System.out.println("5. Salir");
 
             try {
                 optn = choose.nextInt();
@@ -52,7 +53,12 @@ public class Menu {
                     case 3:
                         subMenu3();
                         break;
+                        
                     case 4:
+                        subMenu3();
+                        break;
+                        
+                    case 5:
                         System.out.println("Programa finalizado");
                         System.out.println("");
                         break;
@@ -69,7 +75,7 @@ public class Menu {
         }
     }
 
-    public void subMenu1() {
+    public void subMenu1() throws Exception {
         int optn = 0;
         Scanner read = new Scanner(System.in);
 
@@ -85,11 +91,11 @@ public class Menu {
                 switch (optn) {
                     case 1:
                         Cliente huesped = listaClientes.add();
-                        Habitacion cuarto = listaHabitaciones.add(); &=// no estas annadiendo habitaciones solo elegis una habitacion de la lista de habitaciones
-                        Paquete pack = listaPaquetes.addPaquete(); // no annadis paquete, elegis un paquete de la lista de paquetes
+                        //Habitacion cuarto = listaHabitaciones.ElegirHabitacion();// no estas annadiendo habitaciones solo elegis una habitacion de la lista de habitaciones
+                        //Paquete pack = listaPaquetes.ElegirPaquete(); // no annadis paquete, elegis un paquete de la lista de paquetes
                         System.out.println("¿Cuantos dias se quedará?: ");
                         int cant = read.nextInt();
-                        listaReservaciones.add(huesped, cuarto, pack, cant);// aqui no creas la reservacion , lo hace la lista.
+                       // listaReservaciones.addReservacion(huesped, cuarto, pack, cant);// aqui no creas la reservacion , lo hace la lista.
                         break;
                     case 2:
                         listaReservaciones.mostrarTodo();
@@ -200,7 +206,7 @@ public class Menu {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Menu menu = Menu.getInstance();
 
         menu.mostrar();
