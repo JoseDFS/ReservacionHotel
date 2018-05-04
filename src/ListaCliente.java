@@ -19,7 +19,7 @@ public class ListaCliente {
 
     public Cliente add() {
         Cliente cliente = new Cliente();
-        
+
         //Ingreso de nombre
         System.out.println("Ingrese nombre del cliente ");
         System.out.print(": ");
@@ -28,7 +28,7 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingresaste texto");
         }
-        
+
         //Ingreso de DUI
         System.out.println("Ingrese DUI del cliente");
         System.out.print(": ");
@@ -37,8 +37,7 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
-        
+
         //Ingreso de correo
         System.out.println("Ingrese el correo");
         System.out.print(": ");
@@ -47,26 +46,25 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
+
         //Ingreso de telefono
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
-        try{
-        cliente.setTelefono(c.nextLine());
-        } catch(Exception e){
+        try {
+            cliente.setTelefono(c.nextLine());
+        } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
+
         //Ingreso de Tarjeta de Credito
         System.out.println("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
-        try{
-        cliente.setTarjetaCredito(c.nextLine());
-        } catch(Exception e){
+        try {
+            cliente.setTarjetaCredito(c.nextLine());
+        } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
-        
+
         clientes.add(cliente);
 
         return cliente;
@@ -126,4 +124,34 @@ public class ListaCliente {
         }
 
     }
-}
+
+    public Cliente buscarClienteReservavion() {
+        String clienteR;
+
+        System.out.println("Que nombre de cliente desea: ");
+        clienteR = c.nextLine();
+
+        for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
+            Cliente cliente = iter.next();
+            if (cliente.getNombre().equals(clienteR)) {
+                return cliente;
+
+            }
+        }
+    }
+
+    public void modificarCliente() {
+        String clienteM;
+
+        System.out.println("Escribir nombre de cliente a modificar: ");
+        clienteM = c.nextLine();
+
+        for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
+            Cliente cliente = iter.next();
+            if (cliente.getNombre().equals(clienteM)) {
+
+            }
+
+        }
+
+    }
