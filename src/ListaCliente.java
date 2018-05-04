@@ -47,22 +47,6 @@ public class ListaCliente {
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
-        
-       //Ingreso de telefono
-        System.out.println("Ingrese Telefono");
-        System.out.print(": ");
-        cliente.setTelefono(c.nextLine());
-/*
-        System.out.println("Ingrese el numero de dui");
-        System.out.print(": ");
-        cliente.setDui(Integer.parseInt(c.nextLine()));
-
-        System.out.println("Ingrese Tarjeta de Credito ");
-        System.out.print(": ");
-        cliente.setTarjetaCredito(Integer.parseInt(c.nextLine()));
-*/
-        clientes.add(cliente);
-
         return cliente;
 
     }
