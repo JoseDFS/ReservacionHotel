@@ -51,16 +51,22 @@ public class ListaCliente {
         //Ingreso de telefono
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
+        try{
         cliente.setTelefono(c.nextLine());
-
-        System.out.println("Ingrese el numero de dui");
-        System.out.print(": ");
-        cliente.setDui(c.nextInt());
-
+        } catch(Exception e){
+            System.out.println("No ingreso texto");
+        }
+        
+        //Ingreso de Tarjeta de Credito
         System.out.println("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
-        cliente.setTarjetaCredito(c.nextInt());
-
+        try{
+        cliente.setTarjetaCredito(c.nextLine());
+        } catch(Exception e){
+            System.out.println("No ingreso texto");
+        }
+        
+        
         clientes.add(cliente);
 
         return cliente;
