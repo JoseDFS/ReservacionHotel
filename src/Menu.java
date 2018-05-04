@@ -15,6 +15,10 @@ import java.util.Scanner;
 //Menú creado con patron singleton
 public class Menu {
     private static Menu menu;
+    private ListaCliente listaClientes = new ListaCliente();
+    //private ListaHabitacion listaHabitaciones = new ListaHabitacion();
+    //private ListaPaquete listaPaquetes = new ListaPaquetes();
+    //private ListaReservacion listaReservaciones = new ListaReservacion();
 
     private Menu() {
     }
@@ -68,7 +72,7 @@ public class Menu {
 
     public void subMenu1() {
         int optn = 0;
-        Scanner choose = new Scanner(System.in);
+        Scanner read = new Scanner(System.in);
 
         while (optn != 1 && optn != 2 && optn != 3 && optn != 4 && optn != 5) {
             System.out.println("");
@@ -79,20 +83,21 @@ public class Menu {
             System.out.println("5. Salir");
 
             try {
-                optn = choose.nextInt();
+                optn = read.nextInt();
                 switch (optn) {
                     case 1:
-                        //Submenu1
-                        System.out.println("hola1");
+                        Cliente huesped = listaClientes.add();
+                        //Habitacion cuarto = listaHabitacion.add();
+                        //Paquete pack = listaPaquete.add();
+                        System.out.println("¿Cuantos dias se quedará?: ");
+                        int cant = read.nextInt();
+                        //Reservacion reserva = listaReservacion.add(huesped, cuarto, pack, cant);
                         break;
                     case 2:
-                        System.out.println("hola2");
                         break;
                     case 3:
-                        System.out.println("hola3");
                         break;
                     case 4:
-                        System.out.println("hola4");
                         break;
                     case 5:
                         System.out.println("Programa finalizado");
@@ -106,7 +111,7 @@ public class Menu {
             } catch (InputMismatchException e) {
                 System.err.println("Caractér o caracteres no validos");
                 System.out.println("");
-                choose.nextLine();
+                read.nextLine();
             }
         }
 

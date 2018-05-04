@@ -15,6 +15,15 @@ class Habitacion {
     private int numero;
     private float costoNormal;
     private float costoExtra;
+    private boolean habilitada;
+
+    public boolean isHabilitada() {
+        return habilitada;
+    }
+    
+    public void setHablitada(boolean f){
+        this.habilitada = f;
+    }
 
     public void setPiso(String piso) {
         this.piso = piso;
