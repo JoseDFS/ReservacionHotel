@@ -85,6 +85,8 @@ public class ListaCliente {
     }
     
     public void buscarCliente(){
+        String clienteN;
+        
         
     } 
 
