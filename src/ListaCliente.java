@@ -34,15 +34,15 @@ public class ListaCliente {
         
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
-        cliente.setTelefono(c.nextLine());
+        cliente.setTelefono(c.nextInt());
         
         System.out.println("Ingrese el numero de dui");
         System.out.print(": ");
-        cliente.setDui(c.nextLine());
+        cliente.setDui(c.nextInt());
         
         System.out.println("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
-        cliente.setTarjetaCredito(c.nextLine());
+        cliente.setTarjetaCredito(c.nextInt());
         
         clientes.add(cliente);
         

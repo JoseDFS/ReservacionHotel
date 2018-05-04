@@ -9,74 +9,27 @@
  * @author Jose Segura <com.segura.jd>
  */
 class Cliente {
-
+    
+    private int numerodeCliente;
     private String nombre;
-    private String dui;
-    private String tarjetaCredito;
-    private String telefono;
+    private int dui;
+    private int tarjetaCredito;
+    private int telefono;
     private String correo;
     private int numeroReservaciones;
-    private int numerodeCliente;
+    
 
     public Cliente() {
 
     }
 
-    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, String dui, int numeroReservaciones,int numeroCliente ) {
-        this.numerodeCliente = numeroCliente;
+    public Cliente(int numerodeCliente, String nombre, int dui, int tarjetaCredito, int telefono, String correo, int numeroReservaciones) {
+        this.numerodeCliente = numerodeCliente;
         this.nombre = nombre;
+        this.dui = dui;
         this.tarjetaCredito = tarjetaCredito;
         this.telefono = telefono;
         this.correo = correo;
-        this.dui = dui;
-        this.numeroReservaciones = numeroReservaciones;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getTarjetaCredito() {
-        return tarjetaCredito;
-    }
-
-    public void setTarjetaCredito(String tarjetaCredito) {
-        this.tarjetaCredito = tarjetaCredito;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getDui() {
-        return dui;
-    }
-
-    public void setDui(String dui) {
-        this.dui = dui;
-    }
-
-    public int getNumeroReservaciones() {
-        return numeroReservaciones;
-    }
-
-    public void setNumeroReservaciones(int numeroReservaciones) {
         this.numeroReservaciones = numeroReservaciones;
     }
 
@@ -88,11 +41,60 @@ class Cliente {
         this.numerodeCliente = numerodeCliente;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + ", numeroReservaciones=" + numeroReservaciones + ", numerodeCliente=" + numerodeCliente + '}';
+    public String getNombre() {
+        return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDui() {
+        return dui;
+    }
+
+    public void setDui(int dui) {
+        this.dui = dui;
+    }
+
+    public int getTarjetaCredito() {
+        return tarjetaCredito;
+    }
+
+    public void setTarjetaCredito(int tarjetaCredito) {
+        this.tarjetaCredito = tarjetaCredito;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public int getNumeroReservaciones() {
+        return numeroReservaciones;
+    }
+
+    public void setNumeroReservaciones(int numeroReservaciones) {
+        this.numeroReservaciones = numeroReservaciones;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "numerodeCliente=" + numerodeCliente + ", nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + ", numeroReservaciones=" + numeroReservaciones + '}';
+    }
+
+    
     
 
     
