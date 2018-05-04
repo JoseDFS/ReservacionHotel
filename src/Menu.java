@@ -8,7 +8,6 @@
  *
  * @author Fredy Sánchez
  */
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,9 +15,9 @@ import java.util.Scanner;
 public class Menu {
     private static Menu menu;
     private ListaCliente listaClientes = new ListaCliente();
-    //private ListaHabitacion listaHabitaciones = new ListaHabitacion();
-    //private ListaPaquete listaPaquetes = new ListaPaquetes();
-    //private ListaReservacion listaReservaciones = new ListaReservacion();
+    private ListaHabitacion listaHabitaciones = new ListaHabitacion();
+    private ListaPaquete listaPaquetes = new ListaPaquete();
+    private ListaReservacion listaReservaciones = new ListaReservacion();
 
     private Menu() {
     }
@@ -74,28 +73,29 @@ public class Menu {
         int optn = 0;
         Scanner read = new Scanner(System.in);
 
-        while (optn != 1 && optn != 2 && optn != 3 && optn != 4 && optn != 5) {
+        while (optn != 1 && optn != 2 && optn != 3 && optn != 4) {
             System.out.println("");
             System.out.println("1. Agregar reservación.");
             System.out.println("2. Ver reservaciones.");
-            System.out.println("3. Modificar reservaciones.");
-            System.out.println("4. Cancelar resarvaciones.");
-            System.out.println("5. Salir");
+            System.out.println("3. Cancelar resarvaciones.");
+            System.out.println("4. Salir");
 
             try {
                 optn = read.nextInt();
                 switch (optn) {
                     case 1:
                         Cliente huesped = listaClientes.add();
-                        //Habitacion cuarto = listaHabitacion.add();
-                        //Paquete pack = listaPaquete.add();
+                        Habitacion cuarto = listaHabitaciones.add();
+                        Paquete pack = listaPaquetes.addPaquete();
                         System.out.println("¿Cuantos dias se quedará?: ");
                         int cant = read.nextInt();
-                        //Reservacion reserva = listaReservacion.add(huesped, cuarto, pack, cant);
+                        Reservacion reserva = listaReservaciones.add(huesped, cuarto, pack, cant);
                         break;
                     case 2:
+                        listaReservaciones.mostrarTodo();
                         break;
                     case 3:
+                        
                         break;
                     case 4:
                         break;
@@ -178,6 +178,7 @@ public class Menu {
                     case 1:
                         break;
                     case 2:
+                        listaPaquetes.addPaquete();
                         break;
                     case 3:
                         break;
