@@ -77,10 +77,10 @@ public class Menu {
     }
 
     public void subMenu1() throws Exception {
-        int optn = 0;
+        int optn = 5;
         Scanner read = new Scanner(System.in);
 
-        while (optn != 1 && optn != 2 && optn != 3 && optn != 4) {
+        while (optn != 4) {
             System.out.println("");
             System.out.println("1. Agregar reservación.");
             System.out.println("2. Ver reservaciones.");
@@ -94,21 +94,16 @@ public class Menu {
                         Cliente huesped = listaClientes.add();
                         //Habitacion cuarto = listaHabitaciones.ElegirHabitacion();// no estas annadiendo habitaciones solo elegis una habitacion de la lista de habitaciones
                         //Paquete pack = listaPaquetes.ElegirPaquete(); // no annadis paquete, elegis un paquete de la lista de paquetes
-                        System.out.println("¿Cuantos dias se quedará?: ");
-                        int cant = read.nextInt();
-                        // listaReservaciones.addReservacion(huesped, cuarto, pack, cant);// aqui no creas la reservacion , lo hace la lista.
+                        // listaReservaciones.addReservacion(huesped, cuarto, pack);// aqui no creas la reservacion , lo hace la lista.
                         break;
                     case 2:
                         listaReservaciones.mostrarTodo();
                         break;
                     case 3:
-
                         break;
                     case 4:
                         break;
-                    case 5:
-                        mostrar();
-                        break;
+                    
                     default:
                         System.out.println("opción no valida");
                         System.out.println("");
@@ -230,7 +225,6 @@ public class Menu {
                         break;
                     
                     case 4:
-                       mostrar();
                         break;
                     default:
                         System.out.println("opción no valida");
