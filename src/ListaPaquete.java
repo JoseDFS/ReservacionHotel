@@ -64,6 +64,25 @@ public class ListaPaquete {
     }
     
     public void mostrar() {
+        
+        Paquete paquete = new Paquete();
+        paquetes.add(paquete);
+        paquete.setNombre(" ");
+        paquete.setPrecio(0);
+        paquete.setDescripcion(" ");
+        
+        Paquete paquete2 = new Paquete();
+        paquetes.add(paquete);
+        paquete.setNombre(" ");
+        paquete.setPrecio(0);
+        paquete.setDescripcion(" ");
+        
+        Paquete paquete3 = new Paquete();
+        paquetes.add(paquete);
+        paquete.setNombre(" ");
+        paquete.setPrecio(0);
+        paquete.setDescripcion(" ");
+        
         if (paquetes.isEmpty()) {
             System.out.println("No hay paquetes");
         } 
