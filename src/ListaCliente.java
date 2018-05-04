@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Iterator;
 
@@ -128,18 +129,18 @@ public class ListaCliente {
     public Cliente buscarClienteReservavion() {
         String clienteR;
         Cliente cliente = null;
-        
+
         System.out.println("Que nombre de cliente desea: ");
         clienteR = c.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente tempcliente = iter.next();
             if (tempcliente.getNombre().equals(clienteR)) {
-                cliente =  tempcliente;
+                cliente = tempcliente;
             }
         }
         return cliente;
-       
+
     }
 
     public void modificarCliente() {
@@ -151,9 +152,56 @@ public class ListaCliente {
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
             if (cliente.getNombre().equals(clienteM)) {
+                //Sub menu para modificar cliente
                 
+                int optn = 0;
+                Scanner choose = new Scanner(System.in);
+
+                while (optn != 1 && optn != 2 && optn != 3 && optn != 4 && optn != 5 && optn != 6 && optn != 7) {
+                    System.out.println("");
+                    System.out.println("1. Modificar nombre de cliente: ");
+                    System.out.println("2. Modificar DUI de cliente: ");
+                    System.out.println("3. Modificar Tarjeta de credito de cliente: ");
+                    System.out.println("4. Modificar telefono de cliente: ");
+                    System.out.println("5. Modificar correo de cliente: ");
+                    System.out.println("6. Salir. ");
+                    
+                    try {
+                        optn = choose.nextInt();
+                        switch (optn) {
+                            case 1:
+                                
+                                break;
+                            case 2:
+                        
+                                break;
+                            case 3:
+                                    
+                                break;
+
+                            case 4:
+                                break;
+                                
+                            case 5:
+                                break;
+                                
+                            case 6:
+                                break;
+                            default:
+                                System.out.println("opción no valida");
+                                System.out.println("");
+                                break;
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Caractér o caracteres no validos");
+                System.out.println("");
+                choose.nextLine();
+            }
+                    
+                }
+
             }
 
         }
-
-    }
+    }    
+}
