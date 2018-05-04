@@ -31,7 +31,7 @@ public class ListaCliente {
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
         cliente.setTelefono(c.nextLine());
-        
+
         System.out.println("Ingrese el numero de dui");
         System.out.print(": ");
         cliente.setDui(c.nextLine());
@@ -41,7 +41,7 @@ public class ListaCliente {
         cliente.setTarjetaCredito(c.nextLine());
 
         clientes.add(cliente);
-        
+
         return cliente;
 
     }
@@ -57,37 +57,50 @@ public class ListaCliente {
             throw new Exception("No se puede agregar cliente sin datos.");
         }
     }
-    
-    public void mostrarTodo(){
-        if(clientes.isEmpty()){
+
+    public void mostrarTodo() {
+        if (clientes.isEmpty()) {
             System.out.println("No existe ningun cliente");
-        } else{
+        } else {
             System.out.println("-----Clientes-----");
-            clientes.forEach((e) ->{
+            clientes.forEach((e) -> {
                 System.out.println(e.toString());
             });
         }
     }
-    
-    public void elimanarCliente(){
+
+    public void elimanarCliente() {
         String clienteE;
-        
+
         System.out.println("Escriba el nombre de cliente a eliminar: ");
         clienteE = c.nextLine();
-        
-        for(Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();){
+
+        for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
-            if(cliente.getNombre().equals(clienteE)){
+            if (cliente.getNombre().equals(clienteE)) {
                 iter.remove();
                 System.out.println("Se elimino cliente");
             }
         }
     }
-    
-    public void buscarCliente(){
-        String clienteN;
-        
-        
-    } 
 
-}
+    public void buscarCliente() {
+        String clienteN;
+
+        System.out.println("Que nombre de cliente desea buscar: ");
+        clienteN = c.nextLine();
+
+        for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
+            Cliente cliente = iter.next();
+            if (cliente.getNombre().equals(clienteN)) {
+                System.out.println(cliente.toString());
+            }
+        }
+
+    }
+    
+    public void modificarCliente(){
+        ListaCliente lista;
+        
+        mostrarTodo();
+    }
