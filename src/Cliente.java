@@ -16,12 +16,14 @@ class Cliente {
     private String telefono;
     private String correo;
     private int numeroReservaciones;
+    private int numerodeCliente;
 
     public Cliente() {
 
     }
 
-    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, String dui, int numeroReservaciones) {
+    public Cliente(String nombre, String tarjetaCredito, String telefono, String correo, String dui, int numeroReservaciones,int numeroCliente ) {
+        this.numerodeCliente = numeroCliente;
         this.nombre = nombre;
         this.tarjetaCredito = tarjetaCredito;
         this.telefono = telefono;
@@ -78,10 +80,20 @@ class Cliente {
         this.numeroReservaciones = numeroReservaciones;
     }
 
+    public int getNumerodeCliente() {
+        return numerodeCliente;
+    }
+
+    public void setNumerodeCliente(int numerodeCliente) {
+        this.numerodeCliente = numerodeCliente;
+    }
+
     @Override
     public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + ", numeroReservaciones=" + numeroReservaciones + '}';
+        return "Cliente{" + "nombre=" + nombre + ", dui=" + dui + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + ", correo=" + correo + ", numeroReservaciones=" + numeroReservaciones + ", numerodeCliente=" + numerodeCliente + '}';
     }
+
+    
 
     
 
