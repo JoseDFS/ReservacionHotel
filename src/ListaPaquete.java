@@ -48,4 +48,22 @@ public class ListaPaquete {
         }
     }
     
+    public void eliminar() {
+        String n;
+
+        System.out.println("Escriba el nombre del paquete a eliminar:");
+        n = L.nextLine();
+        for (Iterator<Paquete> iter = paquetes.iterator(); iter.hasNext();) {
+            Paquete paquete = iter.next();
+            if (paquete.getNombre().equals(n)) {
+                iter.remove();
+                System.out.println("Se ha eliminado el paquete especificado");
+            } 
+        }
+
+    }
+    
 }
+    
+    
+    
