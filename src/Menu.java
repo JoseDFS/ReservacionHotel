@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 //Menú creado con patron singleton
 public class Menu {
+
     private static Menu menu;
     private final ListaCliente listaClientes = new ListaCliente();
     private final ListaHabitacion listaHabitaciones = new ListaHabitacion();
@@ -30,14 +31,14 @@ public class Menu {
     }
 
     public void mostrar() throws Exception {
-        int optn = 7;
+        int optn = 6;
         Scanner choose = new Scanner(System.in);
 
         while (optn != 5) {
             System.out.println("1. Reservaciones");
             System.out.println("2. Gestionar habitaciones");
             System.out.println("3. Gestionar paquetes.");
-            System.out.println("3. Gestionar clientes.");
+            System.out.println("4. Gestionar clientes.");
             System.out.println("5. Salir");
 
             try {
@@ -53,11 +54,11 @@ public class Menu {
                     case 3:
                         subMenu3();
                         break;
-                        
+
                     case 4:
-                        subMenu3();
+                        subMenu4();
                         break;
-                        
+
                     case 5:
                         System.out.println("Programa finalizado");
                         System.out.println("");
@@ -84,7 +85,7 @@ public class Menu {
             System.out.println("1. Agregar reservación.");
             System.out.println("2. Ver reservaciones.");
             System.out.println("3. Cancelar resarvaciones.");
-            System.out.println("4. Salir");
+            System.out.println("4. Atras");
 
             try {
                 optn = read.nextInt();
@@ -95,19 +96,18 @@ public class Menu {
                         //Paquete pack = listaPaquetes.ElegirPaquete(); // no annadis paquete, elegis un paquete de la lista de paquetes
                         System.out.println("¿Cuantos dias se quedará?: ");
                         int cant = read.nextInt();
-                       // listaReservaciones.addReservacion(huesped, cuarto, pack, cant);// aqui no creas la reservacion , lo hace la lista.
+                        // listaReservaciones.addReservacion(huesped, cuarto, pack, cant);// aqui no creas la reservacion , lo hace la lista.
                         break;
                     case 2:
                         listaReservaciones.mostrarTodo();
                         break;
                     case 3:
-                        
+
                         break;
                     case 4:
                         break;
                     case 5:
-                        System.out.println("Programa finalizado");
-                        System.out.println("");
+                        mostrar();
                         break;
                     default:
                         System.out.println("opción no valida");
@@ -204,6 +204,45 @@ public class Menu {
             }
         }
 
+    }
+
+    public void subMenu4() throws Exception {
+        int optn = 7;
+        Scanner choose = new Scanner(System.in);
+
+        while (optn != 4) {
+            System.out.println("1. Ver Clientes");
+            System.out.println("2. Modificar datos de un cliente");
+            System.out.println("3. Eliminar Cliente.");
+            System.out.println("4. Atras");
+
+            try {
+                optn = choose.nextInt();
+                switch (optn) {
+                    case 1:
+                        listaClientes.mostrarTodo();
+                        break;
+                    case 2:
+                        //listaClientes.modificarCliente();
+                        break;
+                    case 3:
+                        listaClientes.eliminarCliente();
+                        break;
+                    
+                    case 4:
+                       mostrar();
+                        break;
+                    default:
+                        System.out.println("opción no valida");
+                        System.out.println("");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Caractér o caracteres no validos");
+                System.out.println("");
+                choose.nextLine();
+            }
+        }
     }
 
     public static void main(String[] args) throws Exception {
