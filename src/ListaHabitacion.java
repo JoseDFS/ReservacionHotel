@@ -15,19 +15,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ListaHabitacion {
-    private ArrayList<Habitacion> habitaciones;
+
+ 
+    private final ArrayList<Habitacion> habitaciones;
+    private int precioBsencilla;
+    private int precioBdoble;
     
     Scanner c = new Scanner(System.in);
 
     public ListaHabitacion() {
-        int precioBsencilla = 0;
-        int precioBdoble = 0;
+        precioBsencilla = 0;
+        precioBdoble = 0;
         while((precioBsencilla <= 0) && (precioBdoble <= 0)){
              System.out.println("Ingrese el precio base de las habitaciones sencillas:");
              precioBsencilla = c.nextInt();
              
              System.out.println("Ingrese el precio base de las habitaciones dobles:");
-             precioBsencilla = c.nextInt();
+             precioBdoble = c.nextInt();
              
         }
         
@@ -52,7 +56,30 @@ public class ListaHabitacion {
         }
     }
 
-    
+    public int getPrecioBsencilla() {
+        return precioBsencilla;
+    }
+
+    public void setPrecioBsencilla(int precioBsencilla) {
+        this.precioBsencilla = precioBsencilla;
+        habitaciones.forEach((e) -> {
+            if("Sencilla".equals(e.getTipo()))
+                e.setCostoNormal(precioBsencilla);
+            });
+        
+    }
+
+    public int getPrecioBdoble() {
+        return precioBdoble;
+    }
+
+    public void setPrecioBdoble(int precioBdoble) {
+        this.precioBdoble = precioBdoble;
+        habitaciones.forEach((e) -> {
+            if("Doble".equals(e.getTipo()))
+                e.setCostoNormal(precioBdoble);
+            });
+    }
     
     public void addHabitacion() {
         Habitacion habitacion = new Habitacion();
@@ -114,7 +141,8 @@ public class ListaHabitacion {
         } 
         else {
             System.out.println("-----Habitaciones-----");
-            System.out.println("Habitacion: | Estado: ") ;
+            System.out.println("Precio base sencilla:" + precioBsencilla + "  " + "Precio base doble:" + precioBdoble );
+            System.out.println("Habitacion: | Estado: | Tipo: ") ;
             habitaciones.forEach((e) -> {
                 System.out.println(e.toString());
             });
@@ -127,7 +155,8 @@ public class ListaHabitacion {
         } 
         else {
             System.out.println("-----Habitaciones-----");
-            System.out.println("Habitacion: | Estado: ") ;
+            System.out.println("Precio base sencilla:" + precioBsencilla + "  " + "Precio base doble:" + precioBdoble );
+            System.out.println("Habitacion: | Estado: | Tipo:") ;
             habitaciones.forEach((e) -> {
                 if(e.getPiso().equals(piso)){
                 System.out.println(e.toString());
