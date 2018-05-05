@@ -129,7 +129,7 @@ public class Menu {
             System.out.println("2. Desabilitar habitación.");
             System.out.println("3. Habilitar piso.");
             System.out.println("4. Deshabilitar piso.");
-            System.out.println("5. Cambiar precio de habitación.");
+            System.out.println("5. Cambiar precio base de habitación.");
             System.out.println("6. Ver Habitaciones.");
             System.out.println("7. Añadir Habitacion.");
             System.out.println("8. Atras.");
@@ -176,7 +176,7 @@ public class Menu {
                             }
 
                         }
-                        listaHabitaciones.modificarhabitacion();
+                        
                         break;
                     case 6:
                         int opc6 = 0;
