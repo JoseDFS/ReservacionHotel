@@ -150,16 +150,42 @@ public class Menu {
                         listaHabitaciones.deshabilitarPiso();
                         break;
                     case 5:
+                        int opc5 = 0;
+                        int precio;
+                        while (opc5 != 3) {
+                            System.out.println("1. Cambiar precio base Habitacion sencilla  2.Cambiar precio base Habitacion doble  3.Atras");
+
+                            opc5 = choose.nextInt();
+                            switch (opc5) {
+                                case 1:
+                                    System.out.println("Ingrese el nuevo precio base: ");
+                                    precio = choose.nextInt();
+                                    listaHabitaciones.setPrecioBsencilla(precio);
+                                    break;
+                                case 2:
+                                    listaHabitaciones.mostrarHabitaciones();
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                default:
+                                    System.out.println("opción no valida");
+                                    System.out.println("");
+                                    break;
+                            }
+
+                        }
                         listaHabitaciones.modificarhabitacion();
                         break;
                     case 6:
-                        int opc = 0;
+                        int opc6 = 0;
                         String piso;
-                        while (opc != 3) {
+                        while (opc6 != 3) {
                             System.out.println("1. Ver Habitaciones de un piso   2.Ver todas las Habitaciones  3.Atras");
 
-                            opc = choose.nextInt();
-                            switch (opc) {
+                            opc6 = choose.nextInt();
+                            switch (opc6) {
                                 case 1:
                                     System.out.println("Ingrese el piso: ");
                                     piso = choose.next();
