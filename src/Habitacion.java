@@ -14,19 +14,24 @@ class Habitacion {
     private String piso;
     private int numero;
     private float costoNormal;
-    private float costoExtra;
+
     private boolean habilitada;
     private String tipo;
     
     public void Habitacion(){
-        
+        if("E".equals(piso) || "F".equals(piso)){
+            this.costoTotal = (float) (this.costoNormal + (this.costoNormal*0.1));
+        }
+        else{
+            this.costoTotal = this.costoNormal;
+        }
     }
 
     public boolean isHabilitada() {
         return habilitada;
     }
     
-    public void setHablitada(boolean f){
+    public void setHabilitada(boolean f){
         this.habilitada = f;
     }
 
@@ -51,18 +56,13 @@ class Habitacion {
         this.costoNormal = costoNormal;
     }
 
-    public void setCostoExtra(float costoExtra) {
-        this.costoExtra = costoExtra;
-    }
+   
 
     public float getCostoNormal() {
         return costoNormal;
     }
 
-    public float getCostoExtra() {
-        return costoExtra;
-    }
-    
+   
     
     
     public void setCostoTotal(float costoTotal) {
@@ -74,15 +74,25 @@ class Habitacion {
     }
 
     int getNumero() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return this.numero;
     }
 
     String getPiso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.piso;
     }
 
-    void setHabilitada(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   @Override
+    public String toString() {
+        String estado;
+        if(this.habilitada){
+            estado = "Habilitada";
+        }
+        else{
+            estado = "Deshabilitada";
+        }
+        
+        return  piso + numero + "  " + estado;
     }
+
 
 }
