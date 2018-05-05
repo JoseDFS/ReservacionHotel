@@ -20,7 +20,6 @@ public class Menu {
     private final ListaHabitacion listaHabitaciones = new ListaHabitacion();
     private final ListaPaquete listaPaquetes = new ListaPaquete();
     private final ListaReservacion listaReservaciones = new ListaReservacion();
-    
 
     private Menu() {
     }
@@ -31,7 +30,6 @@ public class Menu {
         }
         return menu;
     }
-    
 
     public void mostrar() throws Exception {
         int optn = 6;
@@ -122,7 +120,7 @@ public class Menu {
     }
 
     public void subMenu2() {
-        int optn =9;
+        int optn = 9;
         Scanner choose = new Scanner(System.in);
 
         while (optn != 8) {
@@ -155,14 +153,39 @@ public class Menu {
                         listaHabitaciones.modificarhabitacion();
                         break;
                     case 6:
-                        listaHabitaciones.mostrarHabitaciones();
+                        int opc = 0;
+                        String piso;
+                        while (opc != 3) {
+                            System.out.println("1. Ver Habitaciones de un piso   2.Ver todas las Habitaciones  3.Atras");
+
+                            opc = choose.nextInt();
+                            switch (opc) {
+                                case 1:
+                                    System.out.println("Ingrese el piso: ");
+                                    piso = choose.next();
+                                    listaHabitaciones.mostrarHabitacionesPiso(piso);
+                                    break;
+                                case 2:
+                                    listaHabitaciones.mostrarHabitaciones();
+                                    break;
+                                case 3:
+                                    break;
+
+                                default:
+                                    System.out.println("opción no valida");
+                                    System.out.println("");
+                                    break;
+                            }
+
+                        }
                         break;
+
                     case 7:
                         listaHabitaciones.addHabitacion();
                         break;
                     case 8:
                         break;
-                  
+
                     default:
                         System.out.println("opción no valida");
                         System.out.println("");
