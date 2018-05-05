@@ -97,7 +97,7 @@ class Habitacion {
             estado = "Deshabilitada";
         }
         
-        return  piso + numero + "  " + estado;
+        return  piso + numero + "     " + estado + "    " + tipo;
     }
 
 
