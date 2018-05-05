@@ -54,6 +54,12 @@ class Habitacion {
 
     public void setCostoNormal(float costoNormal) {
         this.costoNormal = costoNormal;
+        if("E".equals(piso) || "F".equals(piso)){
+            this.costoTotal = (float) (this.costoNormal + (this.costoNormal*0.1));
+        }
+        else{
+            this.costoTotal = this.costoNormal;
+        }
     }
 
    
