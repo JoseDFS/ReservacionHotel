@@ -25,6 +25,12 @@ public class ListaHabitacion {
                 Habitacion habitacion=new Habitacion();
                 habitacion.setPiso(h);
                 habitacion.setNumero(j);
+                if(j%2 == 0){
+                    habitacion.setTipo("Doble");
+                }
+                else{
+                    habitacion.setTipo("Sencilla");
+                }
                 habitaciones.add(habitacion);
             }
         }
