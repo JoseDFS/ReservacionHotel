@@ -16,8 +16,21 @@ import java.util.logging.Logger;
 
 public class ListaHabitacion {
     private ArrayList<Habitacion> habitaciones;
+    
+    Scanner c = new Scanner(System.in);
 
     public ListaHabitacion() {
+        int precioBsencilla = 0;
+        int precioBdoble = 0;
+        while((precioBsencilla <= 0) && (precioBdoble <= 0)){
+             System.out.println("Ingrese el precio base de las habitaciones sencillas:");
+             precioBsencilla = c.nextInt();
+             
+             System.out.println("Ingrese el precio base de las habitaciones dobles:");
+             precioBsencilla = c.nextInt();
+             
+        }
+        
         habitaciones = new ArrayList<>();
         for(char i = 'A'; i <= 'F'; i++){
             for(int j = 1; j <= 10; j++ ){
@@ -27,16 +40,19 @@ public class ListaHabitacion {
                 habitacion.setNumero(j);
                 if(j%2 == 0){
                     habitacion.setTipo("Doble");
+                    habitacion.setCostoNormal(precioBdoble);
                 }
                 else{
                     habitacion.setTipo("Sencilla");
+                    habitacion.setCostoNormal(precioBsencilla);
                 }
+                habitacion.setHabilitada(true);
                 habitaciones.add(habitacion);
             }
         }
     }
 
-    Scanner c = new Scanner(System.in);
+    
     
     public void addHabitacion() {
         Habitacion habitacion = new Habitacion();
@@ -53,9 +69,6 @@ public class ListaHabitacion {
         System.out.print(": ");
         habitacion.setCostoNormal(c.nextInt());
         
-        System.out.println("Ingrese costo Extra");
-        System.out.print(": ");
-        habitacion.setCostoExtra(c.nextInt());
 
         try {
             addHabitacion(habitacion);
@@ -79,24 +92,48 @@ public class ListaHabitacion {
     }
 
     void habilitarHabitacion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
         
     }
 
     void deshabilitarHabitacion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     void habilitarPiso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
 
     void deshabilitarPiso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     void mostrarHabitaciones() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         if (habitaciones.isEmpty()) {
+            System.out.println("No hay habitaciones");
+        } 
+        else {
+            System.out.println("-----Habitaciones-----");
+            System.out.println("Habitacion: | Estado: ") ;
+            habitaciones.forEach((e) -> {
+                System.out.println(e.toString());
+            });
+        }
+    }
+    
+     void mostrarHabitacionesPiso(String piso) {
+         if (habitaciones.isEmpty()) {
+            System.out.println("No hay habitaciones");
+        } 
+        else {
+            System.out.println("-----Habitaciones-----");
+            System.out.println("Habitacion: | Estado: ") ;
+            habitaciones.forEach((e) -> {
+                if(e.getPiso().equals(piso)){
+                System.out.println(e.toString());
+                }
+            });
+        }
     }
 
     void modificarhabitacion() {
