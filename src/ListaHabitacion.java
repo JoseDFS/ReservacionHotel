@@ -16,37 +16,35 @@ import java.util.logging.Logger;
 
 public class ListaHabitacion {
 
- 
     private final ArrayList<Habitacion> habitaciones;
     private int precioBsencilla;
     private int precioBdoble;
-    
+
     Scanner c = new Scanner(System.in);
 
     public ListaHabitacion() {
         precioBsencilla = 0;
         precioBdoble = 0;
-        while((precioBsencilla <= 0) && (precioBdoble <= 0)){
-             System.out.println("Ingrese el precio base de las habitaciones sencillas:");
-             precioBsencilla = c.nextInt();
-             
-             System.out.println("Ingrese el precio base de las habitaciones dobles:");
-             precioBdoble = c.nextInt();
-             
+        while ((precioBsencilla <= 0) && (precioBdoble <= 0)) {
+            System.out.println("Ingrese el precio base de las habitaciones sencillas:");
+            precioBsencilla = c.nextInt();
+
+            System.out.println("Ingrese el precio base de las habitaciones dobles:");
+            precioBdoble = c.nextInt();
+
         }
-        
+
         habitaciones = new ArrayList<>();
-        for(char i = 'A'; i <= 'F'; i++){
-            for(int j = 1; j <= 10; j++ ){
-                String h = ""+i;
-                Habitacion habitacion=new Habitacion();
+        for (char i = 'A'; i <= 'F'; i++) {
+            for (int j = 1; j <= 10; j++) {
+                String h = "" + i;
+                Habitacion habitacion = new Habitacion();
                 habitacion.setPiso(h);
                 habitacion.setNumero(j);
-                if(j%2 == 0){
+                if (j % 2 == 0) {
                     habitacion.setTipo("Doble");
                     habitacion.setCostoNormal(precioBdoble);
-                }
-                else{
+                } else {
                     habitacion.setTipo("Sencilla");
                     habitacion.setCostoNormal(precioBsencilla);
                 }
@@ -63,10 +61,11 @@ public class ListaHabitacion {
     public void setPrecioBsencilla(int precioBsencilla) {
         this.precioBsencilla = precioBsencilla;
         habitaciones.forEach((e) -> {
-            if("Sencilla".equals(e.getTipo()))
+            if ("Sencilla".equals(e.getTipo())) {
                 e.setCostoNormal(precioBsencilla);
-            });
-        
+            }
+        });
+
     }
 
     public int getPrecioBdoble() {
@@ -76,11 +75,12 @@ public class ListaHabitacion {
     public void setPrecioBdoble(int precioBdoble) {
         this.precioBdoble = precioBdoble;
         habitaciones.forEach((e) -> {
-            if("Doble".equals(e.getTipo()))
+            if ("Doble".equals(e.getTipo())) {
                 e.setCostoNormal(precioBdoble);
-            });
+            }
+        });
     }
-    
+
     public void addHabitacion() {
         Habitacion habitacion = new Habitacion();
 
@@ -95,14 +95,12 @@ public class ListaHabitacion {
         System.out.println("Ingrese Precio Base");
         System.out.print(": ");
         habitacion.setCostoNormal(c.nextInt());
-        
 
         try {
             addHabitacion(habitacion);
         } catch (Exception ex) {
             Logger.getLogger(ListaHabitacion.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
 
     }
 
@@ -119,54 +117,76 @@ public class ListaHabitacion {
     }
 
     void habilitarHabitacion() {
-        
-        
+
     }
 
     void deshabilitarHabitacion() {
-        
+
     }
 
     void habilitarPiso() {
-       
+
     }
 
     void deshabilitarPiso() {
-        
+
     }
 
-    void mostrarHabitaciones() {
-         if (habitaciones.isEmpty()) {
+    public void mostrarHabitaciones() {
+        if (habitaciones.isEmpty()) {
             System.out.println("No hay habitaciones");
-        } 
-        else {
+        } else {
             System.out.println("-----Habitaciones-----");
-            System.out.println("Precio base sencilla:" + precioBsencilla + "  " + "Precio base doble:" + precioBdoble );
-            System.out.println("Habitacion: | Estado: | Tipo: ") ;
+            System.out.println("Precio base sencilla:" + precioBsencilla + "  " + "Precio base doble:" + precioBdoble);
+            System.out.println("Habitacion: | Estado: | Tipo: ");
             habitaciones.forEach((e) -> {
                 System.out.println(e.toString());
             });
         }
     }
-    
-     void mostrarHabitacionesPiso(String piso) {
-         if (habitaciones.isEmpty()) {
+
+    public void mostrarHabitacionesPiso(String piso) {
+        if (habitaciones.isEmpty()) {
             System.out.println("No hay habitaciones");
-        } 
-        else {
+        } else {
             System.out.println("-----Habitaciones-----");
-            System.out.println("Precio base sencilla:" + precioBsencilla + "  " + "Precio base doble:" + precioBdoble );
-            System.out.println("Habitacion: | Estado: | Tipo:") ;
+            System.out.println("Precio base sencilla:" + precioBsencilla + "  " + "Precio base doble:" + precioBdoble);
+            System.out.println("Habitacion: | Estado: | Tipo:");
             habitaciones.forEach((e) -> {
-                if(e.getPiso().equals(piso)){
-                System.out.println(e.toString());
+                if (e.getPiso().equals(piso)) {
+                    System.out.println(e.toString());
                 }
             });
         }
     }
 
+    public Habitacion elegirHabitacion() {
+        int numero;
+        String piso;
+        Habitacion habitacion = null;
+         System.out.println("Escriba el piso: ");
+        piso = c.nextLine();
+        
+        System.out.println("Escriba el numero: ");
+        numero = Integer.parseInt(c.nextLine());
+        for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
+            Habitacion temphabitacion = iter.next();
+            if ((temphabitacion.getPiso().equals(piso)) && (temphabitacion.getNumero() == numero)) {
+                if (temphabitacion.isHabilitada()) {
+                    habitacion = temphabitacion;
+                    System.out.println("SE ELIGIOOOOOOO");
+                } else {
+                    System.out.println("Esa habitacion no esta habilitada");
+                }
+            }
+        }
+
+        return habitacion;
+
+    }
+
     void modificarhabitacion() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

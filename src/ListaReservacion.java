@@ -24,32 +24,17 @@ public class ListaReservacion {
 
     Scanner L = new Scanner(System.in);
 
-    public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) throws Exception {
+    public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) {
         System.out.println("¿Cuantos dias se quedará?: ");
         int dias = L.nextInt();
         if ((cliente.getNumeroReservaciones() <= 2) && (dias <= 7)) {
             Reservacion reservacion = new Reservacion(cliente, habitacion, paquete, dias);
-            try {
-                addReservacion(reservacion);
-            } catch (Exception ex) {
-                Logger.getLogger(ListaReservacion.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
+            reservaciones.add(reservacion);
             habitacion.setHabilitada(false);
             cliente.setNumeroReservaciones(cliente.getNumeroReservaciones() + 1);
         } else {
             System.out.println("El cliente ya ha reservado 2 habitaciones");
-        }
-    }
-
-    public void addReservacion(Reservacion reservacion) throws Exception {
-        if (reservacion != null) {
-            if (!reservaciones.contains(reservacion)) {
-                reservaciones.add(reservacion);
-            }
-            Exception e = new Exception("Ya existe cliente con esos datos.");
-            throw e;
-        } else {
-            throw new Exception("No se puede agregar cliente sin datos.");
         }
     }
 
@@ -87,7 +72,7 @@ public class ListaReservacion {
     public void mostrarPorCliente(Cliente cliente) {
         for (Iterator<Reservacion> iter = reservaciones.iterator(); iter.hasNext();) {
             Reservacion reservacion = iter.next();
-            if (reservacion.getCliente().equals(cliente)) {
+            if (reservacion.getClienteR().equals(cliente)) {
                 System.out.println(reservacion.toString());
             }
         }

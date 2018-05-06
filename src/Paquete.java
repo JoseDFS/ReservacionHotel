@@ -9,13 +9,10 @@
  * @author Jose Segura <com.segura.jd>
  */
 class Paquete {
-
-    private boolean premium;
-    private boolean basico;
     
     private String Nombre;
     private String Descripcion;
-    private int Precio;
+    private float Precio;
     
     public Paquete(String nombre, String descripcion, int precio) {
         this.Nombre = nombre;
@@ -42,44 +39,17 @@ class Paquete {
         this.Descripcion = descripcion;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return Precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.Precio = precio;
     }
 
-    public boolean isPremium() {
-        return premium;
-    }
-
-    public boolean isBasico() {
-        return basico;
-    }
-    
-
-    private int costoPremium = 150;
-    private int costoBasico = 10;
-
-    public int getCostoPremium() {
-        return costoPremium;
-    }
-
-    public void setCostoPremium(int costoPremium) {
-        this.costoPremium = costoPremium;
-    }
-
-    public int getCostoBasico() {
-        return costoBasico;
-    }
-
-    public void setCostoBasico(int costoBasico) {
-        this.costoBasico = costoBasico;
-    }
     
     @Override
     public String toString() {
-        return  "Paquete " + "|" + " Precio " + "|"+ " Descripcion \n"+ Nombre + "       " + Precio + "        " + Descripcion +"\n";
+        return   Nombre  + "    " + Precio + "    "  + Descripcion;
     }
 }

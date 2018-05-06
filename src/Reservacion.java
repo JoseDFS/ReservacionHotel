@@ -6,7 +6,6 @@ import java.util.Calendar;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Jose Segura <com.segura.jd>
@@ -17,11 +16,9 @@ public class Reservacion {
     private Habitacion habitacion;
     private int numeroDias;
     private Paquete paquete;
-    private int totalPago;
+    private float totalPago;
     Calendar fechaReserva = Calendar.getInstance();
     int diaOut;
-    
-    
 
     public Reservacion(Cliente cliente, Habitacion habitacion, Paquete paquete, int numeroDias) {
         this.cliente = cliente;
@@ -29,10 +26,8 @@ public class Reservacion {
         this.paquete = paquete;
         this.numeroDias = numeroDias;
         diaOut = fechaReserva.get(Calendar.DAY_OF_YEAR) + numeroDias;
+        CostoTotal();
     }
-    
-    
- 
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
@@ -45,48 +40,47 @@ public class Reservacion {
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;
     }
-    
 
     public void CostoTotal() {
-        int costoPaquete = 0, costoHabitacion;    
-        float costoHabitacionf;
-        
-        costoHabitacionf = habitacion.getCostoTotal();
-        costoHabitacion = (int)costoHabitacionf;
-        this.totalPago = (costoPaquete + costoHabitacion) * numeroDias;
-
+        if (this.paquete != null) {
+            this.totalPago = (this.habitacion.getCostoTotal() + this.paquete.getPrecio()) * numeroDias;
+        } else {
+            this.totalPago = (this.habitacion.getCostoTotal()) * numeroDias;
+        }
     }
 
-    public Cliente getCliente() {
+    public Cliente getClienteR() {
+        this.cliente.toString();
         return this.cliente;
     }
 
-     public String getHabitacion() {
-       int n = this.habitacion.getNumero();
-       String p = this.habitacion.getPiso();
-       
-       return p + n;
+    public String getCliente() {
+        return this.cliente.toString();
+    }
+
+    public String getHabitacion() {
+
+        return this.habitacion.toString();
     }
 
     public int getNumeroDias() {
         return numeroDias;
     }
 
-    
-
     public void getPaquete() {
-        //Aqui pondre para luego ver el nombre y precio del paquete de esta reservacion
+        if (paquete == null) {
+            System.out.println("No se contrato paquete para esta reservacion ");
+        } else {
+            this.paquete.toString();
+        }
     }
-    
-    public int getTotalPago() {
+
+    public float getTotalPago() {
         return totalPago;
     }
-    
+
     public String toString() {
-        return   this.cliente.getNombre() + "    " + this.habitacion.getPiso() + "    "+ this.paquete.getNombre() + "    " + this.totalPago + "\n";
+        return this.cliente.getNombre() + "         " + this.habitacion.getPiso() + this.habitacion.getNumero() + "         " + this.paquete.getNombre() + "        " + this.totalPago + "\n";
     }
 
-    
-    
-    
 }

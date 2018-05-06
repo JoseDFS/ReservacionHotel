@@ -113,13 +113,16 @@ public class ListaCliente {
 
     public void buscarCliente() {
         String clienteN;
+        String dui;
 
-        System.out.println("Que nombre de cliente desea buscar: ");
+        System.out.println("Nombre de cliente: ");
         clienteN = c.nextLine();
+        System.out.println("Dui de cliente : ");
+        dui = c.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
-            if (cliente.getNombre().equals(clienteN)) {
+            if ((cliente.getNombre().equals(clienteN)) && (cliente.getDui().equals(dui))) {
                 System.out.println(cliente.toString());
 
             }
@@ -129,14 +132,17 @@ public class ListaCliente {
 
     public Cliente buscarClienteReservavion() {
         String clienteR;
+        String dui;
         Cliente cliente = null;
 
-        System.out.println("Que nombre de cliente desea: ");
+        System.out.println("Nombre de cliente: ");
         clienteR = c.nextLine();
+        System.out.println("Dui de cliente : ");
+        dui = c.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente tempcliente = iter.next();
-            if (tempcliente.getNombre().equals(clienteR)) {
+            if ((tempcliente.getNombre().equals(clienteR)) && (tempcliente.getDui().equals(dui))) {
                 cliente = tempcliente;
             }
         }
@@ -154,19 +160,19 @@ public class ListaCliente {
             Cliente cliente = iter.next();
             if (cliente.getNombre().equals(clienteM)) {
                 //Sub menu para modificar cliente
-                
+
                 int optn = 0;
                 Scanner choose = new Scanner(System.in);
 
-                while (optn != 1 && optn != 2 && optn != 3 && optn != 4 && optn != 5 && optn != 6 && optn != 7) {
+                while (optn != 6) {
                     System.out.println("");
                     System.out.println("1. Modificar nombre de cliente: ");
                     System.out.println("2. Modificar DUI de cliente: ");
                     System.out.println("3. Modificar Tarjeta de credito de cliente: ");
                     System.out.println("4. Modificar telefono de cliente: ");
                     System.out.println("5. Modificar correo de cliente: ");
-                    
-                    
+                    System.out.println("5. Atras ");
+
                     try {
                         optn = choose.nextInt();
                         switch (optn) {
@@ -188,29 +194,31 @@ public class ListaCliente {
                                 System.out.println("Agregar nuevo Telefono: ");
                                 cliente.setTelefono(c.nextLine());
                                 break;
-                                
+
                             case 5:
                                 System.out.println(" Agregar nuevo correo: ");
                                 cliente.setCorreo(c.nextLine());
                                 break;
                                 
-                            
+                            case 6: 
+                                break;
+
                             default:
                                 System.out.println("opción no valida");
                                 System.out.println("");
                                 break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println(" ");
-                System.err.println("Caractér o caracteres no validos");
-                System.out.println("");
-                choose.nextLine();
-            }
-                    
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println(" ");
+                        System.err.println("Caractér o caracteres no validos");
+                        System.out.println("");
+                        choose.nextLine();
+                    }
+
                 }
 
             }
 
         }
-    }    
+    }
 }

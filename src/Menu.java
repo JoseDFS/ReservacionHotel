@@ -92,10 +92,37 @@ public class Menu {
                 optn = read.nextInt();
                 switch (optn) {
                     case 1:
-                        Cliente huesped = listaClientes.add();
-                        //Habitacion cuarto = listaHabitaciones.ElegirHabitacion();// no estas annadiendo habitaciones solo elegis una habitacion de la lista de habitaciones
-                        //Paquete pack = listaPaquetes.ElegirPaquete(); // no annadis paquete, elegis un paquete de la lista de paquetes
-                        // listaReservaciones.addReservacion(huesped, cuarto, pack);// aqui no creas la reservacion , lo hace la lista.
+                        boolean flag = true;
+                        int oppack = 0;
+                        Paquete pack = null;
+                        Habitacion cuarto = null;
+                        Cliente huesped = listaClientes.buscarClienteReservavion();
+                        if (huesped == null) {
+                            System.out.println("Este cliente no esta registrado se añadira al sistema.");
+                            huesped = listaClientes.add();
+                        }
+                        
+                        while (flag) {
+                            
+                            cuarto = listaHabitaciones.elegirHabitacion();
+                            if (cuarto == null) {
+                                System.out.println("No existe esa habitacion.");
+                            } else {
+                                flag = false;
+                            }
+                        }
+                        while (oppack != 1 && oppack != 2) {
+                            System.out.println("Desea contratar un paquete? 1.Si 2.No ");
+                            oppack = read.nextInt();
+                            if (oppack == 1) {
+                                pack = listaPaquetes.elegirPaquete();
+                                if(pack == null){
+                                    oppack = 0;
+                                     System.out.println("No eligio un paquete existente ");
+                                }
+                            }
+                        }
+                        listaReservaciones.addReservacion(huesped, cuarto, pack);// aqui no creas la reservacion , lo hace la lista.
                         break;
                     case 2:
                         listaReservaciones.mostrarTodo();
@@ -176,7 +203,7 @@ public class Menu {
                             }
 
                         }
-                        
+
                         break;
                     case 6:
                         int opc6 = 0;
