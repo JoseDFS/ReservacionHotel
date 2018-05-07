@@ -167,12 +167,44 @@ public class ListaHabitacion {
     }
 
     void habilitarPiso() {
-        
+        String piso;
+
+        String bug = c.nextLine();
+
+        System.out.println("Escriba el piso: ");
+        piso = c.nextLine();
+
+        for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
+            Habitacion habitacion = iter.next();
+            if (habitacion.getPiso().equals(piso)) {
+                if (habitacion.isHabilitada()) {
+                } else {
+                    habitacion.setHabilitada(true);
+
+                }
+            }
+        }
 
     }
 
     void deshabilitarPiso() {
+        String piso;
 
+        String bug = c.nextLine();
+
+        System.out.println("Escriba el piso: ");
+        piso = c.nextLine();
+
+        for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
+            Habitacion habitacion = iter.next();
+            if (habitacion.getPiso().equals(piso)) {
+                if (!habitacion.isHabilitada()) {
+                } else {
+                    habitacion.setHabilitada(false);
+
+                }
+            }
+        }
     }
 
     public void mostrarHabitaciones() {
