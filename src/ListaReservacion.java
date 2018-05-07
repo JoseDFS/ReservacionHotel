@@ -27,7 +27,7 @@ public class ListaReservacion {
     public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) {
         System.out.println("¿Cuantos dias se quedará?: ");
         int dias = L.nextInt();
-        if ((cliente.getNumeroReservaciones() <2) && (dias <= 7)) {
+        if ((cliente.getNumeroReservaciones() < 2) && (dias <= 7)) {
             Reservacion reservacion = new Reservacion(cliente, habitacion, paquete, dias);
 
             reservaciones.add(reservacion);
@@ -40,13 +40,15 @@ public class ListaReservacion {
 
     public void cancelarReservacion(Cliente cliente) {
         String habitacion;
-
+        
+        String bug = L.nextLine();
+        
         System.out.println("Escriba el piso y numero de la habitacion:");
         habitacion = L.nextLine();
 
         for (Iterator<Reservacion> iter = reservaciones.iterator(); iter.hasNext();) {
             Reservacion reservacion = iter.next();
-            if (reservacion.getHabitacion().equals(habitacion) && reservacion.getCliente().equals(cliente)) {
+            if (reservacion.getHabitacionCancelar().equals(habitacion) && reservacion.getClienteR().equals(cliente)) {
                 iter.remove();
                 System.out.println("Se ha cancelado la reservacion especificada");
                 cliente.setNumeroReservaciones(cliente.getNumeroReservaciones() - 1);
