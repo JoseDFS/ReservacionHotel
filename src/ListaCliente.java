@@ -147,6 +147,9 @@ public class ListaCliente {
                 cliente = tempcliente;
             }
         }
+        if(cliente == null){
+             System.out.println("No se encontro el cliente ");
+        }
         return cliente;
 
     }
@@ -172,7 +175,7 @@ public class ListaCliente {
                     System.out.println("3. Modificar Tarjeta de credito de cliente: ");
                     System.out.println("4. Modificar telefono de cliente: ");
                     System.out.println("5. Modificar correo de cliente: ");
-                    System.out.println("5. Atras ");
+                    System.out.println("6. Atras ");
 
                     try {
                         optn = choose.nextInt();
