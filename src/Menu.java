@@ -10,7 +10,6 @@
  */
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 //Menú creado con patron singleton
 public class Menu {
@@ -36,7 +35,7 @@ public class Menu {
         Scanner choose = new Scanner(System.in);
 
         while (optn != 5) {
-            System.out.println("1. Reservaciones");
+            System.out.println("1. Gestionar Reservaciones");
             System.out.println("2. Gestionar habitaciones");
             System.out.println("3. Gestionar paquetes.");
             System.out.println("4. Gestionar clientes.");
@@ -98,12 +97,12 @@ public class Menu {
                         Habitacion cuarto = null;
                         Cliente huesped = listaClientes.buscarClienteReservavion();
                         if (huesped == null) {
-                            System.out.println("Este cliente no esta registrado se añadira al sistema.");
+                            System.out.println("Este cliente no esta registrado se añadira al sistema pidiendole todos los datos necesarios.");
                             huesped = listaClientes.add();
                         }
-                        
+
                         while (flag) {
-                            
+
                             cuarto = listaHabitaciones.elegirHabitacion();
                             if (cuarto == null) {
                                 System.out.println("No existe esa habitacion.");
@@ -116,9 +115,9 @@ public class Menu {
                             oppack = read.nextInt();
                             if (oppack == 1) {
                                 pack = listaPaquetes.elegirPaquete();
-                                if(pack == null){
+                                if (pack == null) {
                                     oppack = 0;
-                                     System.out.println("No eligio un paquete existente ");
+                                    System.out.println("No eligio un paquete existente ");
                                 }
                             }
                         }
@@ -128,7 +127,13 @@ public class Menu {
                         listaReservaciones.mostrarTodo();
                         break;
                     case 3:
-                        break;
+                        Cliente buscCancelar = listaClientes.buscarClienteReservavion();
+                        if (buscCancelar == null) {
+                            break;
+                        } else {
+                            listaReservaciones.cancelarReservacion(buscCancelar);
+                            break;
+                        }
                     case 4:
                         break;
 
@@ -146,11 +151,11 @@ public class Menu {
 
     }
 
-    public void subMenu2() {
+    public void subMenu2() throws Exception {
         int optn = 9;
         Scanner choose = new Scanner(System.in);
 
-        while (optn != 8) {
+        while (optn != 7) {
             System.out.println("");
             System.out.println("1. Habilitar habitación.");
             System.out.println("2. Desabilitar habitación.");
@@ -158,8 +163,8 @@ public class Menu {
             System.out.println("4. Deshabilitar piso.");
             System.out.println("5. Cambiar precio base de habitación.");
             System.out.println("6. Ver Habitaciones.");
-            System.out.println("7. Añadir Habitacion.");
-            System.out.println("8. Atras.");
+            //System.out.println("7. Añadir Habitacion.");
+            System.out.println("7. Atras.");
 
             try {
                 optn = choose.nextInt();
@@ -190,12 +195,13 @@ public class Menu {
                                     listaHabitaciones.setPrecioBsencilla(precio);
                                     break;
                                 case 2:
-                                    listaHabitaciones.mostrarHabitaciones();
+                                    System.out.println("Ingrese el nuevo precio base: ");
+                                    precio = choose.nextInt();
+                                    listaHabitaciones.setPrecioBdoble(precio);
                                     break;
                                 case 3:
                                     break;
-                                case 4:
-                                    break;
+
                                 default:
                                     System.out.println("opción no valida");
                                     System.out.println("");
@@ -234,9 +240,7 @@ public class Menu {
                         break;
 
                     case 7:
-                        listaHabitaciones.addHabitacion();
-                        break;
-                    case 8:
+                        //listaHabitaciones.addHabitacion();
                         break;
 
                     default:
@@ -257,26 +261,33 @@ public class Menu {
         int optn = 0;
         Scanner choose = new Scanner(System.in);
 
-        while (optn != 1 && optn != 2 && optn != 3 && optn != 4 && optn != 5 && optn != 6) {
-            System.out.println("");
-            System.out.println("1. Modificar paquete.");
-            System.out.println("2. Agregar paquete.");
-            System.out.println("3. Eliminar paquete.");
-            System.out.println("4. Salir");
+        while (optn != 6) {
+            System.out.println("1. Modificar precio paquete.");
+            System.out.println("2. Modificar servicios paquete");
+            System.out.println("3. Agregar paquete.");
+            System.out.println("4. Eliminar paquete.");
+            System.out.println("5. Ver paquetes");
+            System.out.println("6. Atras");
 
             try {
                 optn = choose.nextInt();
                 switch (optn) {
                     case 1:
+                        listaPaquetes.modificarPaquetePrecio();
                         break;
                     case 2:
-                        listaPaquetes.addPaquete();
+                        listaPaquetes.modificarServicios();
                         break;
                     case 3:
+                        listaPaquetes.addPaquete();
                         break;
                     case 4:
-                        System.out.println("Programa finalizado");
-                        System.out.println("");
+                        listaPaquetes.eliminar();
+                        break;
+                    case 5:
+                        listaPaquetes.mostrar();
+                        break;
+                    case 6:
                         break;
                     default:
                         System.out.println("opción no valida");
