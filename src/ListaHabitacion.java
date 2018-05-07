@@ -81,7 +81,10 @@ public class ListaHabitacion {
         });
     }
 
-    public void addHabitacion() {
+   /*
+    No logre q funcionara correctamente.
+    
+    public void addHabitacion() throws Exception {
         Habitacion habitacion = new Habitacion();
 
         System.out.println("Ingrese el piso");
@@ -96,27 +99,18 @@ public class ListaHabitacion {
         System.out.print(": ");
         habitacion.setCostoNormal(c.nextInt());
 
-        try {
-            addHabitacion(habitacion);
-        } catch (Exception ex) {
-            Logger.getLogger(ListaHabitacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public void addHabitacion(Habitacion habitacion) throws Exception {
-        if (habitaciones != null) {
-            if (!habitaciones.contains(habitacion)) {
+        habitaciones.forEach((habitaciontemp) -> {
+            if (habitacion.getPiso().equals((habitaciontemp.getPiso())) && (habitacion.getNumero() == habitaciontemp.getNumero())) {
+                System.out.println("Ya existe esas habitacion");
+            } else {
                 habitaciones.add(habitacion);
+                System.out.println("Se agrego la habitacion");
             }
-            Exception e = new Exception("Ya existe cliente con esos datos.");
-            throw e;
-        } else {
-            throw new Exception("No se puede agregar.");
-        }
+        });
     }
+*/
 
-    void habilitarHabitacion() {
+    public void habilitarHabitacion() {
         int numero;
         String piso;
 
@@ -141,7 +135,7 @@ public class ListaHabitacion {
 
     }
 
-    void deshabilitarHabitacion() {
+    public void deshabilitarHabitacion() {
         int numero;
         String piso;
 
@@ -166,7 +160,7 @@ public class ListaHabitacion {
 
     }
 
-    void habilitarPiso() {
+    public void habilitarPiso() {
         String piso;
 
         String bug = c.nextLine();
@@ -187,7 +181,7 @@ public class ListaHabitacion {
 
     }
 
-    void deshabilitarPiso() {
+    public void deshabilitarPiso() {
         String piso;
 
         String bug = c.nextLine();
@@ -261,5 +255,4 @@ public class ListaHabitacion {
         return habitacion;
 
     }
-
 }
