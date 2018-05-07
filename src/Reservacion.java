@@ -62,6 +62,10 @@ public class Reservacion {
 
         return this.habitacion.toString();
     }
+    public String getHabitacionCancelar() {
+
+        return this.habitacion.getPiso() + this.habitacion.getNumero();
+    }
 
     public int getNumeroDias() {
         return numeroDias;
