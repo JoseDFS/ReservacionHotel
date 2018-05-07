@@ -107,4 +107,34 @@ public class ListaPaquete {
         }
         return paquete;
     }
+    
+    public void modificarPaquetePrecio(){
+        String opc;
+        mostrar();
+        System.out.println("Escriba el nombre del paquete a modificar:");
+        opc = L.nextLine();
+        for (Iterator<Paquete> iter = paquetes.iterator(); iter.hasNext();) {
+            Paquete tempPaquete = iter.next();
+            if (tempPaquete.getNombre().equals(opc)) {
+                System.out.println("Escriba el nuevo precio");
+                int nuevoprecio = L.nextInt();
+                tempPaquete.setPrecio(nuevoprecio);
+            }
+        }
+    }
+    
+    public void modificarServicios(){
+        String opc;
+        mostrar();
+        System.out.println("Escriba el nombre del paquete a modificar:");
+        opc = L.nextLine();
+        for (Iterator<Paquete> iter = paquetes.iterator(); iter.hasNext();) {
+            Paquete tempPaquete = iter.next();
+            if (tempPaquete.getNombre().equals(opc)) {
+                System.out.println("Escriba los nuevos servicios");
+                String nuevadesc = L.nextLine();
+                tempPaquete.setDescripcion(nuevadesc);
+            }
+        }
+    }
 }
