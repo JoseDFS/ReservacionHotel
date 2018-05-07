@@ -29,7 +29,7 @@ public class ListaPaquete {
 
         Paquete paquete2 = new Paquete();
 
-        paquete2.setNombre("Premium ");
+        paquete2.setNombre("Premium");
         paquete2.setPrecio(150);
         paquete2.setDescripcion("Buffet de desayuno, acceso ilimitado a la piscina, servicio a la habitacion, acceso ilimitado al minibar");
         paquetes.add(paquete2);
