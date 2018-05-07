@@ -117,19 +117,94 @@ public class ListaHabitacion {
     }
 
     void habilitarHabitacion() {
+        int numero;
+        String piso;
+
+        String bug = c.nextLine();
+
+        System.out.println("Escriba el piso: ");
+        piso = c.nextLine();
+        System.out.print("Escriba el numero: ");
+        numero = c.nextInt();
+
+        for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
+            Habitacion habitacion = iter.next();
+            if ((habitacion.getPiso().equals(piso)) && (habitacion.getNumero() == numero)) {
+                if (habitacion.isHabilitada()) {
+                    System.out.println("Ya se encuentra habilitada");
+                } else {
+                    habitacion.setHabilitada(true);
+
+                }
+            }
+        }
 
     }
 
     void deshabilitarHabitacion() {
+        int numero;
+        String piso;
+
+        String bug = c.nextLine();
+
+        System.out.println("Escriba el piso: ");
+        piso = c.nextLine();
+        System.out.print("Escriba el numero: ");
+        numero = c.nextInt();
+
+        for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
+            Habitacion habitacion = iter.next();
+            if ((habitacion.getPiso().equals(piso)) && (habitacion.getNumero() == numero)) {
+                if (!habitacion.isHabilitada()) {
+                    System.out.println("Ya se encuentra deshabilitada");
+                } else {
+                    habitacion.setHabilitada(false);
+
+                }
+            }
+        }
 
     }
 
     void habilitarPiso() {
+        String piso;
+
+        String bug = c.nextLine();
+
+        System.out.println("Escriba el piso: ");
+        piso = c.nextLine();
+
+        for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
+            Habitacion habitacion = iter.next();
+            if (habitacion.getPiso().equals(piso)) {
+                if (habitacion.isHabilitada()) {
+                } else {
+                    habitacion.setHabilitada(true);
+
+                }
+            }
+        }
 
     }
 
     void deshabilitarPiso() {
+        String piso;
 
+        String bug = c.nextLine();
+
+        System.out.println("Escriba el piso: ");
+        piso = c.nextLine();
+
+        for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
+            Habitacion habitacion = iter.next();
+            if (habitacion.getPiso().equals(piso)) {
+                if (!habitacion.isHabilitada()) {
+                } else {
+                    habitacion.setHabilitada(false);
+
+                }
+            }
+        }
     }
 
     public void mostrarHabitaciones() {
@@ -165,17 +240,18 @@ public class ListaHabitacion {
         String piso;
         Habitacion habitacion = null;
         String prueba = c.nextLine();
-       
+
         System.out.println("Escriba el piso: ");
         piso = c.nextLine();
         System.out.print("Escriba el numero: ");
         numero = c.nextLine();
+
         for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
             Habitacion temphabitacion = iter.next();
             if ((temphabitacion.getPiso().equals(piso)) && (temphabitacion.getNumero() == Integer.parseInt(numero))) {
                 if (temphabitacion.isHabilitada()) {
                     habitacion = temphabitacion;
-                    
+
                 } else {
                     System.out.println("Esa habitacion no esta habilitada");
                 }
