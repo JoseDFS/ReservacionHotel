@@ -80,7 +80,13 @@ public class Reservacion {
     }
 
     public String toString() {
+        if (this.paquete == null) {
+            return this.cliente.getNombre() + "         " + this.habitacion.getPiso() + this.habitacion.getNumero() + "         " + "   Ninguno        " + "        " + this.totalPago + "\n";
+        }
+        else{
         return this.cliente.getNombre() + "         " + this.habitacion.getPiso() + this.habitacion.getNumero() + "         " + this.paquete.getNombre() + "        " + this.totalPago + "\n";
+        }
+
     }
 
 }

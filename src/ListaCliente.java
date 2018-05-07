@@ -16,7 +16,7 @@ public class ListaCliente {
         clientes = new ArrayList<>();
     }
 
-    Scanner c = new Scanner(System.in);
+    Scanner h = new Scanner(System.in);
 
     public Cliente add() {
         Cliente cliente = new Cliente();
@@ -26,7 +26,7 @@ public class ListaCliente {
         System.out.println("Ingrese nombre del cliente ");
         System.out.print(": ");
         try {
-            cliente.setNombre(c.nextLine());
+            cliente.setNombre(h.nextLine());
         } catch (Exception e) {
             System.out.println("No ingresaste texto");
         }
@@ -35,7 +35,7 @@ public class ListaCliente {
         System.out.println("Ingrese DUI del cliente");
         System.out.print(": ");
         try {
-            cliente.setDui(c.nextLine());
+            cliente.setDui(h.nextLine());
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
@@ -44,7 +44,7 @@ public class ListaCliente {
         System.out.println("Ingrese el correo");
         System.out.print(": ");
         try {
-            cliente.setCorreo(c.nextLine());
+            cliente.setCorreo(h.nextLine());
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
@@ -53,16 +53,17 @@ public class ListaCliente {
         System.out.println("Ingrese Telefono");
         System.out.print(": ");
         try {
-            cliente.setTelefono(c.nextLine());
+            cliente.setTelefono(h.nextLine());
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
 
         //Ingreso de Tarjeta de Credito
-        System.out.println("Ingrese Tarjeta de Credito ");
+        System.out.print("Ingrese Tarjeta de Credito ");
         System.out.print(": ");
+        System.out.println("");
         try {
-            cliente.setTarjetaCredito(c.nextLine());
+            cliente.setTarjetaCredito(h.nextLine());
         } catch (Exception e) {
             System.out.println("No ingreso texto");
         }
@@ -100,7 +101,7 @@ public class ListaCliente {
         String clienteE;
 
         System.out.println("Escriba el nombre de cliente a eliminar: ");
-        clienteE = c.nextLine();
+        clienteE = h.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
@@ -116,9 +117,9 @@ public class ListaCliente {
         String dui;
 
         System.out.println("Nombre de cliente: ");
-        clienteN = c.nextLine();
+        clienteN = h.nextLine();
         System.out.println("Dui de cliente : ");
-        dui = c.nextLine();
+        dui = h.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
@@ -136,9 +137,9 @@ public class ListaCliente {
         Cliente cliente = null;
 
         System.out.println("Nombre de cliente: ");
-        clienteR = c.nextLine();
+        clienteR = h.nextLine();
         System.out.println("Dui de cliente : ");
-        dui = c.nextLine();
+        dui = h.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente tempcliente = iter.next();
@@ -154,7 +155,7 @@ public class ListaCliente {
         String clienteM;
 
         System.out.println("Escribir nombre de cliente a modificar: ");
-        clienteM = c.nextLine();
+        clienteM = h.nextLine();
 
         for (Iterator<Cliente> iter = clientes.iterator(); iter.hasNext();) {
             Cliente cliente = iter.next();
@@ -179,25 +180,25 @@ public class ListaCliente {
                             case 1:
                                 System.out.println(" ");
                                 System.out.println("Agregar nuevo nombre: ");
-                                cliente.setNombre(c.nextLine());
+                                cliente.setNombre(h.nextLine());
                                 break;
                             case 2:
                                 System.out.println("Agregar nuevo DUI: ");
-                                cliente.setDui(c.nextLine());
+                                cliente.setDui(h.nextLine());
                                 break;
                             case 3:
                                 System.out.println("Agregar  nueva Tarjeta de credito: ");
-                                cliente.setTarjetaCredito(c.nextLine());
+                                cliente.setTarjetaCredito(h.nextLine());
                                 break;
 
                             case 4:
                                 System.out.println("Agregar nuevo Telefono: ");
-                                cliente.setTelefono(c.nextLine());
+                                cliente.setTelefono(h.nextLine());
                                 break;
 
                             case 5:
                                 System.out.println(" Agregar nuevo correo: ");
-                                cliente.setCorreo(c.nextLine());
+                                cliente.setCorreo(h.nextLine());
                                 break;
                                 
                             case 6: 

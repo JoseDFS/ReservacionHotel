@@ -161,20 +161,21 @@ public class ListaHabitacion {
     }
 
     public Habitacion elegirHabitacion() {
-        int numero;
+        String numero;
         String piso;
         Habitacion habitacion = null;
-         System.out.println("Escriba el piso: ");
+        String prueba = c.nextLine();
+       
+        System.out.println("Escriba el piso: ");
         piso = c.nextLine();
-        
-        System.out.println("Escriba el numero: ");
-        numero = Integer.parseInt(c.nextLine());
+        System.out.print("Escriba el numero: ");
+        numero = c.nextLine();
         for (Iterator<Habitacion> iter = habitaciones.iterator(); iter.hasNext();) {
             Habitacion temphabitacion = iter.next();
-            if ((temphabitacion.getPiso().equals(piso)) && (temphabitacion.getNumero() == numero)) {
+            if ((temphabitacion.getPiso().equals(piso)) && (temphabitacion.getNumero() == Integer.parseInt(numero))) {
                 if (temphabitacion.isHabilitada()) {
                     habitacion = temphabitacion;
-                    System.out.println("SE ELIGIOOOOOOO");
+                    
                 } else {
                     System.out.println("Esa habitacion no esta habilitada");
                 }

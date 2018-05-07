@@ -27,14 +27,14 @@ public class ListaReservacion {
     public void addReservacion(Cliente cliente, Habitacion habitacion, Paquete paquete) {
         System.out.println("¿Cuantos dias se quedará?: ");
         int dias = L.nextInt();
-        if ((cliente.getNumeroReservaciones() <= 2) && (dias <= 7)) {
+        if ((cliente.getNumeroReservaciones() <2) && (dias <= 7)) {
             Reservacion reservacion = new Reservacion(cliente, habitacion, paquete, dias);
 
             reservaciones.add(reservacion);
             habitacion.setHabilitada(false);
             cliente.setNumeroReservaciones(cliente.getNumeroReservaciones() + 1);
         } else {
-            System.out.println("El cliente ya ha reservado 2 habitaciones");
+            System.out.println("El cliente ya ha reservado 2 habitaciones o esta reservando mas de 7 dias");
         }
     }
 
